@@ -10,13 +10,13 @@
   </head>
 
   <body>
-    <div class="header">
+    <header>
       <ul>
         <li><%= link_to "ホーム", "/" %></li>
         <li><%= link_to "ヘルプ", help_path %></li>
       </ul>
-    </div>
-    -------------------------------------------------------------------------------------------
+      <hr>
+    </header>
     <%= yield %>
   </body>
 </html>

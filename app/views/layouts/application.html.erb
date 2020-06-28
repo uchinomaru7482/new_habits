@@ -14,9 +14,19 @@
       <ul>
         <li><%= link_to "ホーム", "/" %></li>
         <li><%= link_to "ヘルプ", help_path %></li>
+
+        <% if user_signed_in? %>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "習慣登録", new_habit_path %></li>
+        <% end %>
+
       </ul>
       <hr>
     </header>
+
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

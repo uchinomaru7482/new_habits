@@ -1,3 +1,53 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  display: grid;
+  display: -ms-grid;
+
+  grid-template-rows: 1fr 4rem;
+  grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+
+  -ms-grid-rows: 10fr 1fr;
+  -ms-grid-columns: 1fr 1fr 3fr 1fr 1fr;
+
+  height: 100vh;
+}
+
+header, body, footer, div {
+  margin: 0;
+  padding: 1em;
+}
+
+header {
+  grid-row: 1/2;
+  grid-column: 2/3;
+
+  -ms-grid-row: 1/2;
+  -ms-grid-column: 1/2;
+}
+
+#main {
+  grid-row: 1/2;
+  grid-column: 3/4;
+
+  -ms-grid-row: 1/2;
+  -ms-grid-column: 2/3;
+}
+
+#sidebar {
+  grid-row: 1/2;
+  grid-column: 4/5;
+
+  -ms-grid-row: 1/2;
+  -ms-grid-column: 3/4;
+}
+
+footer {
+  grid-row: 2/3;
+  grid-column: 1/2;
+
+  -ms-grid-row: 2/3;
+  -ms-grid-column: 1/2;
+}

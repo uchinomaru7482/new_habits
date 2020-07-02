@@ -3,22 +3,14 @@
   <p>新しい習慣を身に着けよう</p>
 
   <div>
-    <% if user_signed_in? %>
-	  <% @habits.each do |habit| %>
-	    <%= habit.habit_content %>
-		<%= habit.total_days %>
-		<%= habit.continuation_days %>
-	  <% end %>
-
-	<% else %>
+    <% if !user_signed_in? %>
 	  <h3>現在ログインしていません</h3>
 	  <%= link_to "ログイン", new_user_session_path %>
 	  <%= link_to "新規登録", new_user_registration_path %>
-
 	<% end %>
   </div>
 </div>
 
 <div id="sidebar">
-  
+  <%= render "layouts/sidebar" %>
 </div>

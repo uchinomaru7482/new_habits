@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <% @habits.each do |habit| %>
+    <%= habit.habit_content %>
+    <%= habit.total_days %>
+    <%= habit.continuation_days %><br>
+  <% end %>
+<% end %>

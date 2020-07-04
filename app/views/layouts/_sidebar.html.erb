@@ -1,7 +1,13 @@
 <% if user_signed_in? %>
   <% @habits.each do |habit| %>
-    <%= habit.habit_content %>
-    <%= habit.total_days %>
-    <%= habit.continuation_days %><br>
+    <div class="habit_detail">
+      <ul>
+        <li>習慣：<%= habit.habit_content %></li><br>
+        <li>継続日数：<%= habit.continuation_days %></li><br>
+        <li>トータル日数：<%= habit.total_days %></li><br>
+      </ul>
+      <%= link_to "編集", edit_habit_path(habit) %>
+      <%= link_to "削除", habit_path(habit), method: :delete %>
+    </div>
   <% end %>
 <% end %>

@@ -12,14 +12,13 @@
   <body>
     <header>
       <ul>
-        <li><%= link_to "ホーム", "/" %></li>
-        <li><%= link_to "ヘルプ", help_path %></li>
-
         <% if user_signed_in? %>
+          <li><%= link_to "#{current_user.name}", "/users/#{current_user.id}" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           <li><%= link_to "習慣登録", new_habit_path %></li>
         <% end %>
-
+        <li><%= link_to "ホーム", "/" %></li>
+        <li><%= link_to "ヘルプ", help_path %></li>
       </ul>
     </header>
 

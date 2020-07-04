@@ -1,4 +1,6 @@
 class HabitsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:update, :destroy]
   
   INIT_VALUE = 0
 
@@ -7,8 +9,7 @@ class HabitsController < ApplicationController
   end
 
   def create
-    @habit = Habit.new(habit_params)
-    @habit.user_id = current_user.id
+  	@habit = current_user.habits.build(habit_params)
     @habit.total_days = INIT_VALUE
     @habit.total_time = INIT_VALUE
     @habit.continuation_days = INIT_VALUE
@@ -42,5 +43,10 @@ class HabitsController < ApplicationController
   private 
   def habit_params
     params.require(:habit).permit(:user_id, :habit_content, :habit_type, :open_range)
+  end
+
+  def correct_user
+  	@habit = current_user.habits.find_by(id: params[:id])
+  	redirect_to "/" if @habit.nil?
   end
 end

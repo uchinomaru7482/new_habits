@@ -10,16 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_144549) do
+ActiveRecord::Schema.define(version: 2020_07_05_005021) do
 
   create_table "habits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.string "habit_content"
-    t.boolean "habit_type"
+    t.string "content"
+    t.boolean "record_type"
     t.integer "total_days"
     t.time "total_time"
     t.integer "continuation_days"
     t.integer "open_range"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "habit_id"
+    t.text "content"
+    t.time "execution_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

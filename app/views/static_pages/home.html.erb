@@ -1,14 +1,21 @@
 <div id="main">
-  <h1>NEW HABITS!</h1>
-  <p>新しい習慣を身に着けよう</p>
+  <h1>NEW HABITS!新しい習慣を身に着けよう!</h1>
+  
+  <% if user_signed_in? %>
+    <div>
+      <% @posts.each do |post| %>
+        <p><%= post.user.name %></p>
+        <p><%= post.content %></p>
+      <% end %>
+    </div>
 
-  <div>
-    <% if !user_signed_in? %>
-	  <h3>現在ログインしていません</h3>
-	  <%= link_to "ログイン", new_user_session_path %>
-	  <%= link_to "新規登録", new_user_registration_path %>
-	<% end %>
-  </div>
+  <% else %>
+    <div>
+  	  <h2>現在ログインしていません</h3>
+  	  <%= link_to "ログイン", new_user_session_path %>
+  	  <%= link_to "新規登録", new_user_registration_path %>
+    </div>
+  <% end %>
 </div>
 
 <div id="sidebar">

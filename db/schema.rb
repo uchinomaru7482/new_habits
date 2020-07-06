@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_005021) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "habit_id"
+    t.integer "user_id"
     t.text "content"
     t.time "execution_time"
     t.datetime "created_at", null: false

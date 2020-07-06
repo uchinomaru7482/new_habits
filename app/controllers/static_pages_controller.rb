@@ -1,6 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
-  	@habits = Habit.where(user_id: current_user.id) if user_signed_in?
+  	if user_signed_in?
+  	  @habits = Habit.where(user_id: current_user.id)
+  	  @posts = Post.where(user_id: current_user.id)
+  	end
   end
 
   def help

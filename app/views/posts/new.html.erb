@@ -1,0 +1,18 @@
+<div id="main">
+  <h1>今日の積上を投稿</h1>
+  <%= form_with model: [@habit, @post], local: true do |f| %>
+    <%= render "layouts/error_messages", model: f.object %><br>
+
+    <%= f.label :content, "今日の積上げ：" %>
+    <%= f.text_field :content, size: 30 %><br>
+
+    <%= f.label :execution_time, "時間：" %>
+    <%= f.time_select :execution_time %><br>
+
+    <%= f.submit "投稿" %>
+  <% end %>
+</div>
+
+<div id="sidebar">
+
+</div>

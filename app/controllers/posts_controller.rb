@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  #before_action :correct_user, only: [:create, :destroy]
+  before_action :correct_user, only: :destroy
 
   def new
   	@habit = Habit.find(params[:habit_id])
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   	@habit = Habit.find(params[:habit_id])
   	@post = @habit.posts.build(post_params)
   	@post.user_id = @habit.user_id
-  	if @post.save
+  	if @post.user_id == current_user.id && @post.save
   	  redirect_to "/"
   	else
   	  render "new"
@@ -26,5 +26,10 @@ class PostsController < ApplicationController
   private
   def post_params
   	params.require(:post).permit(:content, :execution_time)
+  end
+
+  def correct_user
+    @post = current_user.posts.find_by(id: params[:id])
+  	redirect_to "/" if @post.nil?
   end
 end

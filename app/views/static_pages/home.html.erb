@@ -5,7 +5,9 @@
     <div>
       <% @posts.each do |post| %>
         <p><%= post.user.name %></p>
+        <p><%= post.habit.content %></p>
         <p><%= post.content %></p>
+        <p><%= link_to "削除", post_path(post), method: :delete %><p><br>
       <% end %>
     </div>
 

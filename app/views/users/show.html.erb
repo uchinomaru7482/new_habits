@@ -1,8 +1,31 @@
 <div id="main">
-	<h1><%= @user.name %></h1>
-	<p><%= @user.email %></p>
+  <h1><%= @user.name %></h1>
+  <div>
+    <% @posts.each do |post| %>
+      <p><%= post.user.name %></p>
+      <p><%= post.habit.content %></p>
+      <p><%= post.content %></p>
+      <% if post.user.id == current_user.id %>
+        <p><%= link_to "削除", post_path(post), method: :delete %></p>
+      <% end %>
+      <br>
+    <% end %>
+  </div>
 </div>
 
 <div id="sidebar">
-
+  <% @habits.each do |habit| %>
+    <div class="habit_detail">
+      <ul>
+        <li>習慣：<%= habit.content %></li>
+        <li>継続日数：<%= habit.continuation_days %></li>
+        <li>トータル日数：<%= habit.total_days %></li>
+        <% if habit.user.id == current_user.id %>
+          <li><%= link_to "編集", edit_habit_path(habit) %></li>
+          <li><%= link_to "削除", habit_path(habit), method: :delete %></li>
+          <li><%= link_to "今日の成果を投稿", new_habit_post_path(habit) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>

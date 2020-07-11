@@ -36,9 +36,8 @@ class HabitsController < ApplicationController
 
   def destroy
     Habit.find(params[:id]).destroy
-    redirect_to "/"
+    redirect_to "/users/#{current_user.id}"
   end
-
 
   private 
   def habit_params

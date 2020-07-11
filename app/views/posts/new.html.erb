@@ -9,6 +9,9 @@
     <%= f.label :execution_time, "時間：" %>
     <%= f.time_select :execution_time %><br>
 
+    <%= f.label "今日は目標達成" %>
+    <%= f.check_box :check, {}, "true", "false" %>
+
     <%= f.submit "投稿" %>
   <% end %>
 </div>

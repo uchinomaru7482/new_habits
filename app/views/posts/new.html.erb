@@ -1,7 +1,7 @@
 <div id="main">
   <h1>今日の積上を投稿</h1>
   <%= form_with model: [@habit, @post], local: true do |f| %>
-    <%= render "layouts/error_messages", model: f.object %><br>
+    <%= render "shared/error_messages", model: f.object %><br>
 
     <%= f.label :content, "今日の積上げ：" %>
     <%= f.text_field :content, size: 30 %><br>

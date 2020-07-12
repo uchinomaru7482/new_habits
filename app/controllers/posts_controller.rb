@@ -37,10 +37,8 @@ class PostsController < ApplicationController
 
   #習慣を今日行ったかどうかを保存
   def save_achievement
-    puts already_save_achievement?
     if params[:post][:check] == "true" && already_save_achievement?
-      @achievement = Achievement.new
-      @achievement.habit_id = params[:habit_id]
+      @achievement = @habit.achievements.build
       @achievement.check = true
       @achievement.save
     end
@@ -48,20 +46,19 @@ class PostsController < ApplicationController
 
   def already_save_achievement?
     @today = Date.current.all_day
-    @achievement = Achievement.find_by(habit_id: params[:habit_id], created_at: @today)
+    @achievement = @habit.achievements.find_by(created_at: @today)
     @achievement.nil?
   end
 
   def count_days
-    @habit = Habit.find(params[:habit_id])
-    @count_value = Achievement.where(habit_id: params[:habit_id]).size
+    @count_value = @habit.achievements.count
     @habit.total_days = @count_value
 
     @yesterday = (Date.current - 1).all_day
-    if Achievement.find_by(habit_id: params[:habit_id], created_at: @yesterday)
+    if @habit.achievements.find_by(created_at: @yesterday)
       @habit.continuation_days += 1
     else
-      @habit.continuation_days = 1
+      @habit.continuation_days = 1 if params[:post][:check] == "true"
     end
     @habit.save
   end

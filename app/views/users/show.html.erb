@@ -1,5 +1,9 @@
 <div id="main">
   <h1><%= @user.name %></h1>
+    <div>
+      <%= link_to "フォロー：#{@user.following.count}", user_following_path(@user) %>
+      <%= link_to "フォロワー：#{@user.followers.count}", user_followers_path(@user) %>
+    </div>
   <div>
     <% @posts.each do |post| %>
       <p><%= post.user.name %></p>

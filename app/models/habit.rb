@@ -1,7 +1,7 @@
 class Habit < ApplicationRecord
   belongs_to :user
-  has_many :posts, dependent: :delete_all
-  has_many :achievements, dependent: :delete_all
+  has_many :posts, dependent: :destroy
+  has_many :achievements, dependent: :destroy
 
   validates :content, presence: true, length: {maximum: 100}
   validates :record_type, inclusion: {in: [true, false]}

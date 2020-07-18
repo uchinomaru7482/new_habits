@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :habits, dependent: :delete_all
+  has_many :habits, dependent: :destroy
   has_many :posts
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy

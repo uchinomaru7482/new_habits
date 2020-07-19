@@ -11,20 +11,23 @@
 
   <body>
     <header>
-      <ul>
-        <% if user_signed_in? %>
-          <li><%= link_to "#{current_user.name}", "/users/#{current_user.id}" %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "習慣登録", new_habit_path %></li>
-        <% end %>
-        <li><%= link_to "ホーム", "/" %></li>
-        <li><%= link_to "ヘルプ", help_path %></li>
-      </ul>
+      <div class="header">
+        <h1>NEW HABITS!</h1>
+        <nav>
+          <ul class="header_link">
+            <li><%= link_to "ホーム", "/" %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "プロフィール", "/users/#{current_user.id}" %></li>
+              <li><%= link_to "習慣登録", new_habit_path %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <% end %>
+            <li><%= link_to "ヘルプ", help_path %></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-    <% end %>
+    
     <%= yield %>
   </body>
 </html>

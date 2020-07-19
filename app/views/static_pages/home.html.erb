@@ -1,19 +1,21 @@
 <div id="main">
-  <h1>NEW HABITS!新しい習慣を身に着けよう!</h1>
+  <% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+  <% end %>
   
+  <h2>ホーム</h2>
   <% if user_signed_in? %>
-    <div>
-      <% @posts.each do |post| %>
-        <p><%= post.user.name %></p>
-        <p><%= post.habit.content %></p>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <p class="user_name"><%= post.user.name %></p>
+        <p>習慣：<%= post.habit.content %></p>
         <p><%= post.content %></p>
-        <br>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
   <% else %>
     <div>
-  	  <h2>現在ログインしていません</h3>
+  	  <h2>現在ログインしていません</h2>
   	  <%= link_to "ログイン", new_user_session_path %>
   	  <%= link_to "新規登録", new_user_registration_path %>
     </div>

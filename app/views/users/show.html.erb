@@ -41,6 +41,9 @@
         <li>習慣：<%= habit.content %></li>
         <li>継続日数：<%= habit.continuation_days %></li>
         <li>トータル日数：<%= habit.total_days %></li>
+        <% if habit.record_type == false %>
+          <li>トータル時間：<%= habit.total_time %></li>
+        <% end %>
         <% if habit.user.id == current_user.id %>
           <li><%= link_to "編集", edit_habit_path(habit) %></li>
           <li><%= link_to "削除", habit_path(habit), method: :delete %></li>

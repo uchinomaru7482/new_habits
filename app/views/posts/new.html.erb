@@ -6,8 +6,10 @@
     <%= f.label :content, "今日の積上げ：" %>
     <%= f.text_field :content, size: 50 %><br>
 
-    <%= f.label :execution_time, "時間：" %>
-    <%= f.time_select :execution_time %><br>
+    <% if @habit.record_type == false %>
+      <%= f.label "時間：" %>
+      <%= f.text_field :time %>
+    <% end %><br>
 
     <%= f.label "今日は目標達成" %>
     <%= f.check_box :check, {}, "true", "false" %>

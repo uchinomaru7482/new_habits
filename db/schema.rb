@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_235146) do
   create_table "achievements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "habit_id"
     t.boolean "check"
+    t.integer "report"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_07_11_235146) do
     t.string "content"
     t.boolean "record_type"
     t.integer "total_days"
-    t.time "total_time"
+    t.integer "total_time"
     t.integer "continuation_days"
     t.integer "open_range"
     t.datetime "created_at", null: false
@@ -35,7 +36,6 @@ ActiveRecord::Schema.define(version: 2020_07_11_235146) do
     t.integer "habit_id"
     t.integer "user_id"
     t.text "content"
-    t.time "execution_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

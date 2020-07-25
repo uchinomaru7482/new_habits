@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   def new
   	@habit = Habit.find(params[:habit_id])
   	@post = Post.new
+    @today = Date.current.all_day
+    @achievement = @habit.achievements.find_by(created_at: @today)
   end
 
   def create

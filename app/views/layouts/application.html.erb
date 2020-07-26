@@ -15,13 +15,38 @@
         <h1>NEW HABITS!</h1>
         <nav>
           <ul class="header_link">
-            <li><%= link_to "ホーム", "/" %></li>
+            <li>
+              <%= link_to "/" do %>
+                <%= image_tag "header_image/home" %>
+                ホーム
+              <% end %>
+            </li>
             <% if user_signed_in? %>
-              <li><%= link_to "プロフィール", "/users/#{current_user.id}" %></li>
-              <li><%= link_to "習慣登録", new_habit_path %></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <li>
+                <%= link_to  "/users/#{current_user.id}" do %>
+                  <%= image_tag "header_image/profile" %>
+                  プロフィール
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_habit_path do %>
+                  <%= image_tag "header_image/habit" %>
+                  習慣登録
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <%= image_tag "header_image/logout" %>
+                  ログアウト
+                <% end %>
+              </li>
             <% end %>
-            <li><%= link_to "ヘルプ", help_path %></li>
+            <li>
+              <%= link_to help_path do %>
+                <%= image_tag "header_image/help" %>
+                ヘルプ
+              <% end %>
+            </li>
           </ul>
         </nav>
       </div>

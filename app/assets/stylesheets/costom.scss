@@ -64,8 +64,41 @@ header {
     padding: 1em 0;
     border-bottom: solid 1px #eee;
 
-    .user_name {
-      font-weight: bold;
+    .post_header{
+      overflow: hidden;
+
+      p {
+        float: left;
+      }
+
+      .user_image {
+        width: 2.5em;
+        height: 2.5em;
+        position: relative;
+        overflow: hidden;
+        border-radius: 2.5em;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .user_name {
+        font-weight: bold;
+        line-height: 2.5em;
+        padding: 0 1em;
+      }
+
+      .time_stamp {
+        float: right;
+        line-height: 2.5em;
+        padding: 0 1em;
+        font-size: 0.8em;
+        color: #aaa;
+      }
     }
   }
 }

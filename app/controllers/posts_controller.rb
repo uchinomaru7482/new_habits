@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   	if @post.user_id == current_user.id && @post.save
       save_achievement
       count_days
+      count_total_time if @habit.record_type == false
       redirect_to "/"
   	else
   	  render "new"
@@ -68,7 +69,10 @@ class PostsController < ApplicationController
     else
       @habit.continuation_days = 1 if params[:post][:check] == "true"
     end
+    @habit.save
+  end
 
+  def count_total_time
     @habit.total_time = 0
     @habit.achievements.each do |achievement|
       @habit.total_time += achievement.report

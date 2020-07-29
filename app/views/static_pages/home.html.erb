@@ -10,7 +10,7 @@
         <div class="post_header">
           <p class="user_image"><%= image_tag post.user.image.url %></p>
           <p class="user_name"><%= post.user.name %></p>
-          <p class="time_stamp"><%= post.created_at %></p>
+          <p class="time_stamp"><%= l post.created_at %></p>
         </div>
         <p>習慣：<%= post.habit.content %></p>
         <p><%= post.content %></p>

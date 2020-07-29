@@ -1,9 +1,8 @@
 <div id="main">
+  <h2>ホーム</h2>
   <% flash.each do |message_type, message| %>
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
   <% end %>
-  
-  <h2>ホーム</h2>
   <% if user_signed_in? %>
     <% @posts.each do |post| %>
       <div class="post">

@@ -5,7 +5,7 @@ body {
   background-color: #fff;
   display: grid;
   display: -ms-grid;
-  grid-template-rows: 1fr 4rem;
+  grid-template-rows: 1fr;
   grid-template-columns: 2fr 3fr 2fr;
   -ms-grid-rows: 1fr 4rem;
   -ms-grid-columns: 2fr 3fr 2fr;
@@ -27,6 +27,8 @@ header {
   .header {
     width: 15em;
     margin: 0 0 0 auto;
+    position: sticky;
+    top: 2em;
 
     .header_link {
       padding-left: 1em;
@@ -100,6 +102,30 @@ header {
         color: #aaa;
       }
     }
+
+    .post_habit {
+      padding-left: 3.5em;
+      overflow: hidden;
+
+      p {
+        float: left;
+      }
+
+      img {
+        margin-right: 0.2em;
+        width: 1.2em;
+        height: 1.2em;
+      }
+
+      .habit_name {
+        line-height: 1.2em;
+      }
+
+    }
+
+    .post_content {
+      padding-left: 3.5em;
+    }
   }
 }
 
@@ -110,18 +136,30 @@ header {
   -ms-grid-column: 3/4;
   padding: 1rem;
 
+  .habits {
+    height: 94vh;
+    overflow: auto;
+    position: sticky;
+    top: 2em;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
   .habits_detail {
     padding: 1em 0;
     border-bottom: solid 1px #eee;
   }
 }
 
-footer {
+/* 使用する場合はbody内grid-template-rowsに追記
+  footer {
   grid-row: 2/3;
   grid-column: 1/4;
   -ms-grid-row: 2/3;
   -ms-grid-column: 1/4;
-}
+} */
 
 li{
   list-style: none;

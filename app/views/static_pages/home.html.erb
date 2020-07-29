@@ -12,8 +12,11 @@
           <p class="user_name"><%= post.user.name %></p>
           <p class="time_stamp"><%= l post.created_at %></p>
         </div>
-        <p>習慣：<%= post.habit.content %></p>
-        <p><%= post.content %></p>
+        <div class="post_habit">
+          <p><%= image_tag "header_image/habit" %></p>
+          <p class="habit_name"><%= post.habit.content %></p>
+        </div>
+        <p class="post_content"><%= post.content %></p>
       </div>
     <% end %>
 

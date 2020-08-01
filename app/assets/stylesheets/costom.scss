@@ -260,3 +260,54 @@ header {
 }
 
 
+/* habits#new */
+#main {
+
+  label {
+    display: block;
+    font-size: 0.8em;
+  }
+
+  .habit_content_form {
+    margin: 1em 0;
+
+    input {
+      height: 1.5em;
+      border-radius: 4px;
+    }
+  }
+
+  .habit_record_type_form {
+    margin: 1em 0;
+  }
+}
+
+/* posts#new */
+#main {
+  
+  .post_content_form {
+    margin: 1em 0;
+
+    textarea {
+      width: 100%;
+      height: 5em;
+      border-radius: 4px;
+    }
+  }
+
+  .post_time_form {
+    margin: 1em 0;
+
+    input {
+      border-radius: 4px;
+    }
+  }
+
+  .post_check_form {
+    margin: 1em 0;
+
+    label {
+      display: inline-block;
+    }
+  }
+}

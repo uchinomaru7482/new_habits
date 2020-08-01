@@ -1,19 +1,22 @@
 <div id="main">
   <h1>今日の積上を投稿</h1>
   <%= form_with model: [@habit, @post], local: true do |f| %>
-    <%= render "shared/error_messages", model: f.object %><br>
-
-    <%= f.label :content, "今日の積上げ：" %>
-    <%= f.text_field :content, size: 50 %><br>
-
+    <%= render "shared/error_messages", model: f.object %>
+    <div class="post_content_form">
+      <%= f.label :content, "今日の成果" %>
+      <%= f.text_area :content %><br>
+    </div>
     <% if @habit.record_type == false %>
-      <%= f.label "時間：" %>
-      <%= f.text_field :time %>
-    <% end %><br>
-
+      <div class="post_time_form">
+        <%= f.label "時間" %>
+        <%= f.text_field :time %>
+      </div>
+    <% end %>
     <% if @achievement.nil? || @achievement.check == false %>
-      <%= f.label "今日は目標達成" %>
-      <%= f.check_box :check, {}, "true", "false" %>
+      <div class="post_check_form">
+        <%= f.label "目標達成チェック" %>
+        <%= f.check_box :check, {}, "true", "false" %>
+      </div>
     <% end %>
 
     <%= f.submit "投稿" %>

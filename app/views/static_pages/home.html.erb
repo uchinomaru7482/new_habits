@@ -15,7 +15,7 @@
           <p><%= image_tag "header_image/habit" %></p>
           <p class="habit_name"><%= post.habit.content %></p>
         </div>
-        <p class="post_content"><%= post.content %></p>
+        <div class="post_content"><%= simple_format(post.content) %></div>
       </div>
     <% end %>
 

@@ -1,55 +1,69 @@
 <div id="main">
-  <h1><%= @user.name %></h1>
-    <div>
-      <%= link_to "フォロー：#{@user.following.count}", user_following_path(@user) %>
-      <%= link_to "フォロワー：#{@user.followers.count}", user_followers_path(@user) %>
-    </div>
+  <div class="user_show_name">
+    <p class="user_image"><%= image_tag @user.image.url %></p>
+    <h2><%= @user.name %></h2>
+  </div>
+  <div class="follow_follower_number">
+    <%= link_to "フォロー：#{@user.following.count}", user_following_path(@user) %>
+    <%= link_to "フォロワー：#{@user.followers.count}", user_followers_path(@user) %>
+  </div>
 
-    <% unless @user.id == current_user.id %>
-      <div>
-        <% if current_user.following?(@user) %>
-          <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id), html: {method: :delete}, local: true) do |f| %>
-            <%= f.submit "フォロー解除" %>
-          <% end %>
-        <% else %>
-        　<%= form_with(model: current_user.active_relationships.build, local: true) do |f| %>
-            <div><%= hidden_field_tag :followed_id, @user.id %></div>
-            <%= f.submit "フォローする" %>
-          <% end %>
+  <% unless @user.id == current_user.id %>
+    <div>
+      <% if current_user.following?(@user) %>
+        <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id), html: {method: :delete}, local: true) do |f| %>
+          <%= f.submit "フォロー解除" %>
         <% end %>
-      </div>
-    <% end %>
+      <% else %>
+    　  <%= form_with(model: current_user.active_relationships.build, local: true) do |f| %>
+          <div><%= hidden_field_tag :followed_id, @user.id %></div>
+          <%= f.submit "フォローする" %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 
   
   <% @posts.each do |post| %>
     <div class="post">
-      <p><%= post.user.name %></p>
-      <p><%= post.habit.content %></p>
-      <p><%= post.content %></p>
+      <div class="post_header">
+        <p class="user_image"><%= image_tag post.user.image.url %></p>
+        <p class="user_name"><%= post.user.name %></p>
+        <p class="time_stamp"><%= l post.created_at %></p>
+      </div>
+      <div class="post_habit">
+        <p><%= image_tag "header_image/habit" %></p>
+        <p class="habit_name"><%= post.habit.content %></p>
+      </div>
+      <p class="post_content"><%= post.content %></p>
       <% if post.user.id == current_user.id %>
-        <p><%= link_to "削除", post_path(post), method: :delete %></p>
+        <p class="post_delete_button"><%= link_to "削除", post_path(post), method: :delete %></p>
       <% end %>
     </div>
   <% end %>
 </div>
 
 <div id="sidebar">
-  <h2>習慣リスト</h2>
-  <% @habits.each do |habit| %>
-    <div class="habits_detail">
-      <ul>
-        <li>習慣：<%= habit.content %></li>
-        <li>継続日数：<%= habit.continuation_days %></li>
-        <li>トータル日数：<%= habit.total_days %></li>
-        <% if habit.record_type == false %>
-          <li>トータル時間：<%= habit.total_time %></li>
-        <% end %>
-        <% if habit.user.id == current_user.id %>
-          <li><%= link_to "編集", edit_habit_path(habit) %></li>
-          <li><%= link_to "削除", habit_path(habit), method: :delete %></li>
-          <li><%= link_to "今日の成果を投稿", new_habit_post_path(habit) %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="habits_detail">
+    <h2>習慣リスト</h2>
+    <% @habits.each do |habit| %>
+      <div class="habit">
+        <ul>
+          <li class="habit_name"><%= habit.content %></li>
+          <li>継続日数　　　：<%= habit.continuation_days %></li>
+          <li>トータル日数　：<%= habit.total_days %></li>
+          <% if habit.record_type == false %>
+            <li>トータル時間　：<%= habit.total_time %></li>
+          <% end %>
+          <% if habit.user.id == current_user.id %>
+            <div class="habit_button">
+              <li><%= link_to "今日の成果を投稿", new_habit_post_path(habit), class: "post_button" %></li>
+              <li class="habit_edit_button"><%= link_to "編集", edit_habit_path(habit) %></li>
+              <li class="habit_delete_button"><%= link_to "削除", habit_path(habit), method: :delete %></li>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </div>

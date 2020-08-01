@@ -6,6 +6,7 @@ class HabitsController < ApplicationController
 
   def new
     @habit = Habit.new
+    @habits = Habit.where(user_id: current_user.id)
   end
 
   def create
@@ -23,6 +24,7 @@ class HabitsController < ApplicationController
 
   def edit
     @habit = Habit.find(params[:id])
+    @habits = Habit.where(user_id: current_user.id)
   end
 
   def update

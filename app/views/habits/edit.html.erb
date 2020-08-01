@@ -1,7 +1,7 @@
 <div id="main">
   <h1>習慣登録情報編集</h1>
   <%= form_with model: @habit, local: true do |f| %>
-    <%= render "layouts/error_messages", model: f.object %><br>
+    <%= render "shared/error_messages", model: f.object %><br>
 
     <%= f.label :content, "新しい習慣：" %>
     <%= f.text_field :content, size: 30 %><br>
@@ -17,5 +17,5 @@
 </div>
 
 <div id="sidebar">
-
+  <%= render "layouts/sidebar" %>
 </div>

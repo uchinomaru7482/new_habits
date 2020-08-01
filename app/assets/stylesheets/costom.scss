@@ -311,3 +311,25 @@ header {
     }
   }
 }
+
+
+/* devise#registrations#new */
+#main {
+  
+  .sign_up_field {
+    margin: 1em 0;
+  }
+}
+
+/* devise#sessions#new */
+#main {
+  
+  .log_in_field {
+    margin: 1em 0;
+
+    .remember_me {
+      display: inline-block;
+    }
+  }
+}
+

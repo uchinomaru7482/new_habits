@@ -20,6 +20,7 @@ class PostsController < ApplicationController
       count_total_time if @habit.record_type == false
       redirect_to "/"
   	else
+      @habits = Habit.where(user_id: current_user.id)
   	  render "new"
   	end
   end

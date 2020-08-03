@@ -18,6 +18,7 @@ class HabitsController < ApplicationController
   	  flash[:success] = "習慣を登録しました"
   	  redirect_to "/"
     else
+      @habits = Habit.where(user_id: current_user.id)
   	  render "new"
     end
   end

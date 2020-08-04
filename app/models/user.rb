@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, UserImageUploader
 
   has_many :habits, dependent: :destroy
   has_many :posts

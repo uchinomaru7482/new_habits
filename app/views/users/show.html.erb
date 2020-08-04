@@ -35,7 +35,8 @@
         <p><%= image_tag "header_image/habit" %></p>
         <p class="habit_name"><%= post.habit.content %></p>
       </div>
-      <p class="post_content"><%= post.content %></p>
+      <div class="post_content"><%= simple_format(post.content) %></div>
+      <p class="post_image"><%= image_tag post.image.url %></p>
       <% if post.user.id == current_user.id %>
         <p class="post_delete_button"><%= link_to "削除", post_path(post), method: :delete %></p>
       <% end %>

@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-  	params.require(:post).permit(:content, :execution_time)
+  	params.require(:post).permit(:content, :image, :execution_time)
   end
 
   def correct_user

@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_124450) do
     t.integer "habit_id"
     t.integer "user_id"
     t.text "content"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

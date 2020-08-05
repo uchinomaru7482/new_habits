@@ -2,3 +2,15 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M"
+  activerecord:
+    attributes:
+      habit:
+        content: "習慣名"
+        record_type: "習慣の種類"
+      post:
+        content: "投稿内容"
+      user:
+        name: "ニックネーム"
+        image: "ユーザー画像"
+        email: "メールアドレス"
+        password: "パスワード"

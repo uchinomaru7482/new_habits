@@ -265,6 +265,9 @@ header {
 
 /* habits#new */
 #main {
+  .field_with_errors {
+    display: contents;
+  }
 
   label {
     display: block;

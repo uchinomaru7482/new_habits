@@ -1,22 +1,5 @@
 <div id="main">
-  <h1>新しい習慣を登録</h1>
-  <%= form_with model: @habit, local: true do |f| %>
-    <%= render "shared/error_messages", model: f.object %>
-    <div class="habit_content_form">
-      <%= f.label :content, "習慣名" %>
-      <%= f.text_field :content, size: 30 %>
-    </div>
-    <div class="habit_record_type_form">
-      <%= f.label :record_type, "習慣の種類" %>
-      <%= f.radio_button :record_type, true %>チェックタイプ　<%= f.radio_button :record_type, false %>記録タイプ
-    </div>
-
-    <%# 公開範囲機能未実装　%>
-    <%# <%= f.label :open_range, "公開範囲：" %>
-    <%# <%= f.select :open_range, [["自分のみ", 0], ["友達のみ", 1], ["すべての人", 2]], prompt: "公開範囲を選択して下さい" %>
-
-    <%= f.submit "登録" %>
-  <% end %>
+  <%= render partial: "habit_form", locals: {title: "新しい習慣を登録", submit_button_name: "登録"} %>
 </div>
 
 <div id="sidebar">

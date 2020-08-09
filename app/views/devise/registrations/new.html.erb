@@ -5,22 +5,22 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="sign_up_field">
-      <%= f.label :email, "メールアドレス"%>
+      <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="sign_up_field">
-      <%= f.label :name, "ニックネーム" %>
+      <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
 
     <div class="sign_up_field">
-      <%= f.label :image, "プロフィール画像" %>
+      <%= f.label :image %>
       <%= f.file_field :image %>
     </div>
 
     <div class="sign_up_field">
-      <%= f.label :password, "パスワード" %>
+      <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> 文字以上)</em>
       <% end %><br>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="sign_up_field">
-      <%= f.label :password_confirmation, "パスワード確認" %>
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 

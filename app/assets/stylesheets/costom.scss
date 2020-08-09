@@ -212,6 +212,11 @@ header {
   .user_show_name {
     overflow: hidden;
 
+    .user_edit {
+      line-height: 4em;
+      float: right;
+    }
+
     p, h2 {
       float: left;
     }
@@ -319,11 +324,15 @@ header {
 }
 
 
-/* devise#registrations#new */
+/* devise#registrations#new, #edit */
 #main {
   
-  .sign_up_field {
+  .sign_up_field, .edit_field {
     margin: 1em 0;
+  }
+
+  .edit_field_info {
+    font-size: 0.8em;
   }
 }
 

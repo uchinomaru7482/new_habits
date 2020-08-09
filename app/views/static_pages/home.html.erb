@@ -16,7 +16,9 @@
           <p class="habit_name"><%= post.habit.content %></p>
         </div>
         <div class="post_content"><%= simple_format(post.content) %></div>
-        <p class="post_image"><%= image_tag post.image.url %></p>
+        <% if post.image? %>
+          <p class="post_image"><%= image_tag post.image.url %></p>
+        <% end %>
       </div>
     <% end %>
 

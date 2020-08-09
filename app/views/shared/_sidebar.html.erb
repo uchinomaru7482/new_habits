@@ -10,7 +10,16 @@
           <% if habit.record_type == false %>
             <li>トータル時間　：<%= habit.total_time %>時間</li>
           <% end %>
-          <li><%= link_to "今日の成果を投稿", new_habit_post_path(habit), class: "post_button" %></li>
+          <% if show_edit_delete_button == false %>
+            <li><%= link_to "今日の成果を投稿", new_habit_post_path(habit), class: "post_button" %></li>
+          <% end %>
+          <% if show_edit_delete_button == true && habit.user.id == current_user.id %>
+            <div class="habit_button">
+              <li><%= link_to "今日の成果を投稿", new_habit_post_path(habit), class: "post_button" %></li>
+              <li class="habit_edit_button"><%= link_to "編集", edit_habit_path(habit) %></li>
+              <li class="habit_delete_button"><%= link_to "削除", habit_path(habit), method: :delete %></li>
+            </div>
+          <% end %>
         </ul>
       </div>
     <% end %>

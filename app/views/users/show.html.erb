@@ -28,26 +28,5 @@
 </div>
 
 <div id="sidebar">
-  <div class="habits_detail">
-    <h2>習慣リスト</h2>
-    <% @habits.each do |habit| %>
-      <div class="habit">
-        <ul>
-          <li class="habit_name"><%= habit.content %></li>
-          <li>継続日数　　　：<%= habit.continuation_days %></li>
-          <li>トータル日数　：<%= habit.total_days %></li>
-          <% if habit.record_type == false %>
-            <li>トータル時間　：<%= habit.total_time %></li>
-          <% end %>
-          <% if habit.user.id == current_user.id %>
-            <div class="habit_button">
-              <li><%= link_to "今日の成果を投稿", new_habit_post_path(habit), class: "post_button" %></li>
-              <li class="habit_edit_button"><%= link_to "編集", edit_habit_path(habit) %></li>
-              <li class="habit_delete_button"><%= link_to "削除", habit_path(habit), method: :delete %></li>
-            </div>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+  <%= render partial: "shared/sidebar", locals: {show_edit_delete_button: true} %>
 </div>

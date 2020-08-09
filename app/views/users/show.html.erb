@@ -24,27 +24,7 @@
     </div>
   <% end %>
 
-  
-  <% @posts.each do |post| %>
-    <div class="post">
-      <div class="post_header">
-        <p class="user_image"><%= image_tag post.user.image.url %></p>
-        <p class="user_name"><%= post.user.name %></p>
-        <p class="time_stamp"><%= l post.created_at %></p>
-      </div>
-      <div class="post_habit">
-        <p><%= image_tag "header_image/habit" %></p>
-        <p class="habit_name"><%= post.habit.content %></p>
-      </div>
-      <div class="post_content"><%= simple_format(post.content) %></div>
-      <% if post.image? %>
-        <p class="post_image"><%= image_tag post.image.url %></p>
-      <% end %>
-      <% if post.user.id == current_user.id %>
-        <p class="post_delete_button"><%= link_to "削除", post_path(post), method: :delete %></p>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render partial: "shared/post", locals: {show_delete_button: true}, collection: @posts %>
 </div>
 
 <div id="sidebar">

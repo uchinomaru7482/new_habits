@@ -1,4 +1,5 @@
 class HabitsController < ApplicationController
+
   before_action :authenticate_user!
   before_action :correct_user, only: [:update, :destroy]
 
@@ -37,7 +38,8 @@ class HabitsController < ApplicationController
     redirect_to "/users/#{current_user.id}"
   end
 
-  private 
+  private
+  
   def habit_params
     params.require(:habit).permit(:user_id, :content, :record_type, :open_range)
   end

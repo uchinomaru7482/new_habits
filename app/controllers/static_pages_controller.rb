@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+	
   def home
   	if user_signed_in?
 	  following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"

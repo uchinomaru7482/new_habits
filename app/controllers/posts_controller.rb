@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   before_action :authenticate_user!
   before_action :correct_user, only: :destroy
 
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
   end
 
   private
+  
   def post_params
   	params.require(:post).permit(:content, :image, :execution_time)
   end

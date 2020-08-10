@@ -1,8 +1,6 @@
 class HabitsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:update, :destroy]
-  
-  INIT_VALUE = 0
 
   def new
     @habit = Habit.new
@@ -11,9 +9,6 @@ class HabitsController < ApplicationController
 
   def create
   	@habit = current_user.habits.build(habit_params)
-    @habit.total_days = INIT_VALUE
-    @habit.total_time = INIT_VALUE
-    @habit.continuation_days = INIT_VALUE
   	if @habit.save
   	  flash[:success] = "習慣を登録しました"
   	  redirect_to "/"

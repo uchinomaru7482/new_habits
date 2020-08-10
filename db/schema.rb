@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_124450) do
 
   create_table "achievements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "habit_id"
-    t.boolean "check"
+    t.boolean "check", null: false
     t.integer "report"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2020_07_27_124450) do
 
   create_table "habits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.string "content"
-    t.boolean "record_type"
+    t.string "content", null: false
+    t.boolean "record_type", null: false
     t.integer "total_days"
     t.integer "total_time"
     t.integer "continuation_days"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_124450) do
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "habit_id"
     t.integer "user_id"
-    t.text "content"
+    t.text "content", null: false
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_124450) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.string "name"
+    t.string "name", null: false
     t.string "image"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

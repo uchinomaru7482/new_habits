@@ -22,6 +22,8 @@ class PostsController < ApplicationController
       redirect_to "/"
   	else
       @habits = Habit.where(user_id: current_user.id)
+      @today = Date.current.all_day
+      @achievement = @habit.achievements.find_by(created_at: @today)
   	  render "new"
   	end
   end
@@ -32,7 +34,7 @@ class PostsController < ApplicationController
   end
 
   private
-  
+
   def post_params
   	params.require(:post).permit(:content, :image, :execution_time)
   end

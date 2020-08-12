@@ -17,8 +17,10 @@ class PostsController < ApplicationController
   	@post.user_id = @habit.user_id
   	if @post.user_id == current_user.id && @post.save
       save_achievement
-      count_days
-      count_total_time if @habit.record_type == false
+      @habit.total_days = @habit.count_total_days
+      @habit.continuation_days = @habit.count_continuation_days if params[:post][:check] == "true"
+      @habit.total_time = @habit.count_total_time if @habit.record_type == false
+      @habit.save
       redirect_to "/"
   	else
       @habits = Habit.where(user_id: current_user.id)
@@ -44,45 +46,22 @@ class PostsController < ApplicationController
   	redirect_to "/" if @post.nil?
   end
 
-  #習慣を今日行ったかどうかを保存
-  def save_achievement
-    if already_save_achievement?
-      @achievement = @habit.achievements.build
-      @achievement.check = params[:post][:check]
-      @achievement.report = params[:post][:time].to_i if @habit.record_type == false
-      @achievement.save
-    else
-      @today = Date.current.all_day
-      @achievement = @habit.achievements.find_by(created_at: @today)
-      @achievement.report += params[:post][:time].to_i if @habit.record_type == false
-      @achievement.save
-    end
-  end
-
-  def already_save_achievement?
+  def already_save_achievement_today?
     @today = Date.current.all_day
     @achievement = @habit.achievements.find_by(created_at: @today)
     @achievement.nil?
   end
 
-  def count_days
-    @count_value = Achievement.where(habit_id: @habit.id).where(check: true).count
-    @habit.total_days = @count_value
-
-    @yesterday = (Date.current - 1).all_day
-    if @habit.achievements.find_by(created_at: @yesterday)
-      @habit.continuation_days += 1 if params[:post][:check] == "true"
+  def save_achievement
+    if already_save_achievement_today?
+      @achievement = @habit.achievements.build
+      @achievement.check = params[:post][:check]
+      @achievement.report = params[:post][:time].to_i if @habit.record_type == false
     else
-      @habit.continuation_days = 1 if params[:post][:check] == "true"
+      @today = Date.current.all_day
+      @achievement = @habit.achievements.find_by(created_at: @today)
+      @achievement.report += params[:post][:time].to_i if @habit.record_type == false
     end
-    @habit.save
-  end
-
-  def count_total_time
-    @habit.total_time = 0
-    @habit.achievements.each do |achievement|
-      @habit.total_time += achievement.report
-    end
-    @habit.save
+    @achievement.save
   end
 end

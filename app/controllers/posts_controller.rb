@@ -38,7 +38,16 @@ class PostsController < ApplicationController
   private
 
   def post_params
-  	params.require(:post).permit(:content, :image, :execution_time)
+  	params.require(:post).permit(:content, :image)
+  end
+
+  def achievement_params
+    if @habit.record_type == false
+      parameter = [:report, :check]
+    else
+      parameter = [:check]
+    end
+    params.require(:post).permit(parameter)
   end
 
   def correct_user
@@ -46,24 +55,16 @@ class PostsController < ApplicationController
   	redirect_to "/" if @post.nil?
   end
 
-  def already_save_achievement_today?
-    @today = Date.current.all_day
-    @achievement = @habit.achievements.find_by(created_at: @today)
-    @achievement.nil?
-  end
-
   def save_achievement
-    if already_save_achievement_today?
-      @achievement = @habit.achievements.build
-      @achievement.check = params[:post][:check]
-      @achievement.report = params[:post][:time].to_i if @habit.record_type == false
+    if Achievement.already_save_achievement_today?(@habit)
+      @achievement = @habit.achievements.build(achievement_params)
     else
       @today = Date.current.all_day
       @achievement = @habit.achievements.find_by(created_at: @today)
       if @achievement.check == false && params[:post][:check] == "true"
         @achievement.check = params[:post][:check]
       end
-      @achievement.report += params[:post][:time].to_i if @habit.record_type == false
+      @achievement.report += params[:post][:report].to_i if @habit.record_type == false
     end
     @achievement.save
   end

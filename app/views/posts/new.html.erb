@@ -12,7 +12,7 @@
     <% if @habit.record_type == false %>
       <div class="post_time_form">
         <%= f.label "時間" %>
-        <%= f.text_field :time %>
+        <%= f.text_field :report %>
       </div>
     <% end %>
     <% if @achievement.nil? || @achievement.check == false %>

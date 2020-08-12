@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   	@post.user_id = @habit.user_id
   	if @post.user_id == current_user.id && @post.save
       save_achievement
-      @habit.total_days = @habit.count_total_days
+      @habit.total_days = @habit.count_total_days if params[:post][:check] == "true"
       @habit.continuation_days = @habit.count_continuation_days if params[:post][:check] == "true"
       @habit.total_time = @habit.count_total_time if @habit.record_type == false
       @habit.save
@@ -60,6 +60,9 @@ class PostsController < ApplicationController
     else
       @today = Date.current.all_day
       @achievement = @habit.achievements.find_by(created_at: @today)
+      if @achievement.check == false && params[:post][:check] == "true"
+        @achievement.check = params[:post][:check]
+      end
       @achievement.report += params[:post][:time].to_i if @habit.record_type == false
     end
     @achievement.save

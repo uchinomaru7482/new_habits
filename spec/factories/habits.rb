@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :habit do
-    content "毎日読書をする"
+    content "習慣登録テスト"
     record_type false
     association :owner
   end

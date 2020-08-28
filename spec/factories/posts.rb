@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    content "今日は「具体と抽象」を読んだ"
+    sequence(:content) {|n| "テスト#{n}を行った"}
     association :habit
     user {habit.owner}
   end

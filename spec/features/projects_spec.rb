@@ -16,7 +16,6 @@ RSpec.feature "Projects", type: :feature do
 
 	  scenario "user sign in" do
 	  	user = FactoryBot.create(:user)
-
 	  	visit "/"
 	  	click_link "ログイン"
 	    fill_in "メールアドレス", with: user.email
@@ -24,6 +23,31 @@ RSpec.feature "Projects", type: :feature do
 	    click_button "ログイン"
 
 	    expect(page).to have_content "ログインしました。"
+	  end
+
+	  scenario "user follow" do
+	  	user1 = FactoryBot.create(:user)
+	  	user2 = FactoryBot.create(:user)
+	  	habit2 = FactoryBot.create(:habit, owner: user2)
+	  	post2 = FactoryBot.create(:post, habit: habit2)
+	  	sign_in_as user1
+	  	visit "/users/#{user2.id}"
+	  	click_button "フォローする"
+	  	click_link "プロフィール"
+	  	click_link "フォロー：1"
+
+	  	expect(page).to have_content "#{user2.name}"
+
+	  	click_link "ホーム"
+
+	  	expect(page).to have_content "#{post2.content}"
+
+	  	click_link "ログアウト"
+	  	sign_in_as user2
+	  	click_link "プロフィール"
+	  	click_link "フォロワー：1"
+
+	  	expect(page).to have_content "#{user1.name}"
 	  end
   end
 

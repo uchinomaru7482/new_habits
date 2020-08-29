@@ -25,7 +25,15 @@ RSpec.feature "Projects", type: :feature do
 	    expect(page).to have_content "ログインしました。"
 	  end
 
-	  scenario "user follow" do
+	  scenario "user logout" do
+	  	user = FactoryBot.create(:user)
+	  	sign_in_as user
+	  	click_link "ログアウト"
+
+	  	expect(page).to have_content "ログアウトしました。"
+	  end
+
+	  scenario "follow user" do
 	  	user1 = FactoryBot.create(:user)
 	  	user2 = FactoryBot.create(:user)
 	  	habit2 = FactoryBot.create(:habit, owner: user2)
@@ -48,6 +56,20 @@ RSpec.feature "Projects", type: :feature do
 	  	click_link "フォロワー：1"
 
 	  	expect(page).to have_content "#{user1.name}"
+	  end
+
+	  scenario "edit user" do
+	  	user = FactoryBot.create(:user)
+	  	sign_in_as user
+	  	click_link "プロフィール"
+	  	click_link "プロフィールを編集"
+	  	fill_in "メールアドレス", with: "edittester@example.com"
+	  	fill_in "現在のパスワード", with: "aaaaaaaa"
+	  	click_button "保存"
+	  	edit_user = User.find(user.id)
+
+	  	expect(page).to have_content "アカウントが更新されました。"
+	  	expect(edit_user.email).to eq "edittester@example.com"
 	  end
   end
 
@@ -95,6 +117,18 @@ RSpec.feature "Projects", type: :feature do
 
 	  	expect(user.habits).to be_empty
 	  	expect(habit.posts).to be_empty
+	  end
+
+	  scenario "edit a habit" do
+	  	user = FactoryBot.create(:user)
+	  	habit = FactoryBot.create(:habit, owner: user)
+	  	sign_in_as user
+	  	click_link "プロフィール"
+	  	click_link "編集"
+	  	fill_in "習慣名", with: "習慣編集テスト"
+	  	click_button "保存"
+
+	  	expect(page).to have_content "習慣編集テスト"
 	  end
 	end
 

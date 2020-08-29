@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
+
+	let(:user) {FactoryBot.create(:user)}
+	let(:habit) {FactoryBot.create(:habit, owner: user)}
+
   describe "user" do
 	  scenario "user sign up" do
 	  	visit "/"
@@ -15,7 +19,6 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "user sign in" do
-	  	user = FactoryBot.create(:user)
 	  	visit "/"
 	  	click_link "ログイン"
 	    fill_in "メールアドレス", with: user.email
@@ -26,7 +29,6 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "user logout" do
-	  	user = FactoryBot.create(:user)
 	  	sign_in_as user
 	  	click_link "ログアウト"
 
@@ -59,7 +61,6 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "edit user" do
-	  	user = FactoryBot.create(:user)
 	  	sign_in_as user
 	  	click_link "プロフィール"
 	  	click_link "プロフィールを編集"
@@ -75,7 +76,6 @@ RSpec.feature "Projects", type: :feature do
 
   describe "habit" do
 	  scenario "register a check type habit" do
-	    user = FactoryBot.create(:user)
 	    sign_in_as user
 
 	    expect{
@@ -90,7 +90,6 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "register a record type habit" do
-	    user = FactoryBot.create(:user)
 	    sign_in_as user
 
 	    expect{
@@ -106,7 +105,6 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "remove a habit" do
-	  	user = FactoryBot.create(:user)
 	  	habit = FactoryBot.create(:habit, owner: user)
 	  	post = FactoryBot.create(:post, habit: habit)
 	  	sign_in_as user
@@ -120,7 +118,6 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "edit a habit" do
-	  	user = FactoryBot.create(:user)
 	  	habit = FactoryBot.create(:habit, owner: user)
 	  	sign_in_as user
 	  	click_link "プロフィール"
@@ -134,7 +131,6 @@ RSpec.feature "Projects", type: :feature do
 
 	describe "post" do
 	  scenario "post achievements with check" do
-	  	user = FactoryBot.create(:user)
 	  	habit = FactoryBot.create(:habit, record_type: true, owner: user)
 	  	sign_in_as user
 
@@ -151,7 +147,6 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "post achievements without check" do
-	  	user = FactoryBot.create(:user)
 	  	habit = FactoryBot.create(:habit, record_type: true, owner: user)
 	  	sign_in_as user
 
@@ -167,8 +162,6 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "post achievements with time" do
-	  	user = FactoryBot.create(:user)
-	  	habit = FactoryBot.create(:habit, owner: user)
 	  	achievement = FactoryBot.create(:achievement, :created_at_yesterday, habit: habit)
 	  	sign_in_as user
 
@@ -184,8 +177,6 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "remove a post" do
-	  	user = FactoryBot.create(:user)
-	  	habit = FactoryBot.create(:habit, owner: user)
 	  	post = FactoryBot.create(:post, habit: habit)
 	  	sign_in_as user
 	  	click_link "プロフィール"

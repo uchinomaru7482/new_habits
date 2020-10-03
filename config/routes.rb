@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get "/", to: "static_pages#home"
+  get "/lp", to: "static_pages#lp"
   get "/help", to: "static_pages#help"
   get "/users/:id", to: "users#show"
   

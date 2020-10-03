@@ -3,15 +3,7 @@
   <% flash.each do |message_type, message| %>
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
   <% end %>
-  <% if user_signed_in? %>
-    <%= render partial: "shared/post", locals: {show_delete_button: false}, collection: @posts %>
-  <% else %>
-    <div>
-  	  <p>現在ログインしていません</p>
-  	  <%= link_to "ログイン", new_user_session_path %>
-  	  <%= link_to "新規登録", new_user_registration_path %>
-    </div>
-  <% end %>
+  <%= render partial: "shared/post", locals: {show_delete_button: false}, collection: @posts %>
 </div>
 
 <div id="sidebar">

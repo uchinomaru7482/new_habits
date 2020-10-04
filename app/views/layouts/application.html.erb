@@ -9,19 +9,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class= "<%= controller.action_name %>">
     <header>
       <div class="header">
-        <h1>NEW HABITS!</h1>
-        <nav>
-          <ul class="header_link">
-            <li>
-              <%= link_to "/" do %>
-                <%= image_tag "header_image/home" %>
-                ホーム
-              <% end %>
-            </li>
-            <% if user_signed_in? %>
+        <% if user_signed_in? %>
+          <h1>NEW HABITS!</h1>
+          <nav>
+            <ul class="header_link">
+              <li>
+                <%= link_to "/" do %>
+                  <%= image_tag "header_image/home" %>
+                  ホーム
+                <% end %>
+              </li>
               <li>
                 <%= link_to  "/users/#{current_user.id}" do %>
                   <%= image_tag "header_image/profile" %>
@@ -40,15 +40,15 @@
                   ログアウト
                 <% end %>
               </li>
-            <% end %>
-            <li>
-              <%= link_to help_path do %>
-                <%= image_tag "header_image/help" %>
-                ヘルプ
-              <% end %>
-            </li>
-          </ul>
-        </nav>
+              <li>
+                <%= link_to help_path do %>
+                  <%= image_tag "header_image/help" %>
+                  ヘルプ
+                <% end %>
+              </li>
+            </ul>
+          </nav>
+        <% end %>
       </div>
     </header>
 

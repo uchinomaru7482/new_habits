@@ -348,6 +348,146 @@ header {
   }
 }
 
+/* static_pages#lp */
 .lp {
   display: initial;
+
+  header {
+    display: none;
+  }
+
+  .app_title {
+    background-image: image-url("lp_image/top_image.jpg");
+    background-size: contain;
+    background-position: center;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 60em;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 5em;
+  }
+
+  .sub_title {
+    font-size: 1.7em;
+    margin-bottom: 2em;
+  }
+
+  h2, h3 {
+    width: 10em;
+    height: 1.7em;
+    margin: 1em auto;
+    text-align: center;
+    font-size: 2em;
+    border-bottom: solid 3px #000;
+  }
+
+  h3 {
+    margin-top: 2em;
+  }
+
+  p {
+    text-align: center;
+  }
+  
+  .habit_registration {
+    height: 15em;
+    width: 45em;
+    margin: 8em auto;
+
+    .habit_registration_image {
+      display: inline-block;
+      border: solid 1px #999;
+    }
+
+    div {
+      display: inline-block;
+      vertical-align: top;
+      height: 15em;
+      width: 17em;
+      margin-left: 3em;
+
+      .habit_registration_title {
+      display: inline-block;
+      margin: 0.7em;
+      font-size: 1.5em;
+      }
+
+      ul {
+        display: inline-block;
+        margin: 1em;
+      }
+    }
+  }
+
+  .post {
+    height: 15em;
+    width: 39em;
+    margin: 8em auto;
+
+    .post_title {
+      text-align: center;
+      margin: 0.7em;
+      font-size: 1.5em;
+    }
+
+    .post_image {
+      border: solid 1px #999;
+    }
+  }
+
+  .habit_management {
+    height: 15em;
+    width: 45em;
+    margin: 8em auto;
+
+    .habit_management_image {
+      display: inline-block;
+      border: solid 1px #999;
+    }
+
+    div {
+      display: inline-block;
+      vertical-align: top;
+      height: 15em;
+      width: 17em;
+      margin-left: 5em;
+    }
+
+    .habit_management_title {
+      dhisplay: inline-block;
+      margin: 0.7em;
+      font-size: 1.5em;
+      text-align: left;
+    }
+
+    .habit_management_content {
+      display: inline-block;
+      margin: 1em;
+      text-align: left;
+    }
+  }
+
+  .signin_link, .signup_link {
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 1em;
+
+    a {
+      font-size: 1.3em;
+      padding: 3px 5px;
+      display: inline-block;
+      color: #000;
+      border: solid 2px #000;
+      border-radius: 3px;
+      transition: .4s;
+    }
+
+    a:hover {
+      background: #000;
+      color: #fff;
+    }
+  }
 }

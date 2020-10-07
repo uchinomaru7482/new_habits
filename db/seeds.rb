@@ -61,6 +61,13 @@ yumi_achievements = [{check: true, report: 2, created_at: today - 1},
   habit.achievements.create(yumi_achievements[n])
 }
 
+user = User.find(1)
+habit = user.habits.create(content: "毎日自炊する", record_type: true, total_days: 2, continuation_days: 1)
+habit.posts.create(user_id: 1, content: "青椒肉絲を作った。本格中華を家で作ることができて嬉しい。")
+habit.posts.create(user_id: 1, content: "餃子を作った。実家の味が再現できていたような気がする。", created_at: today - 2)
+habit.achievements.create(check:true)
+habit.achievements.create(check:true, created_at: today - 2)
+
 users = User.all
 user = User.find(1)
 following = users[2..6]

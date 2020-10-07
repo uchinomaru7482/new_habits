@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   	@title = "フォロー"
   	@user = User.find(params[:user_id])
   	@users = @user.following
+    @habits = Habit.where(user_id: current_user.id)
   	render "show_follow"
   end
 
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
   	@title = "フォロワー"
   	@user = User.find(params[:user_id])
   	@users = @user.followers
+    @habits = Habit.where(user_id: current_user.id)
   	render "show_follow"
   end
 end

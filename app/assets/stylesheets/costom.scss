@@ -267,6 +267,38 @@ header {
   }
 }
 
+/* users#show_follow */
+#main {
+  .follow_user {
+    overflow: hidden;
+    padding: 1em 0;
+
+    p {
+      float: left;
+    }
+
+    .follow_user_image {
+      width: 2.5em;
+      height: 2.5em;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2.5em;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .follow_user_name {
+      font-weight: bold;
+      line-height: 2.5em;
+      padding: 0 1em;
+    }
+  }
+}
 
 /* habits#new */
 #main {

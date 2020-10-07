@@ -2,11 +2,14 @@
   <h1><%= "#{@user.name}  #{@title}" %></h1>
   <% if @users.any? %>
     <% @users.each do |user| %>
-      <%= link_to user.name, user %>
+      <div class="follow_user">
+      	<p class="follow_user_image"><%= image_tag user.image.url %></p>
+        <p class="follow_user_name"><%= link_to user.name, user %></p>
+      </div>
     <% end %>
   <% end %>
 </div>
 
 <div id="sidebar">
-
+  <%= render partial: "shared/sidebar", locals: {show_edit_delete_button: false} %>
 </div>

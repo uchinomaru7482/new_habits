@@ -6,13 +6,13 @@
       <%= link_to "プロフィールを編集", edit_user_registration_path, class: "user_edit" %>
     <% end %>
   </div>
-  <div class="follow_follower_number">
+  <div class="follow_number">
     <%= link_to "フォロー：#{@user.following.count}", user_following_path(@user) %>
     <%= link_to "フォロワー：#{@user.followers.count}", user_followers_path(@user) %>
   </div>
 
   <% unless @user.id == current_user.id %>
-    <div>
+    <div class="follow_button">
       <% if current_user.following?(@user) %>
         <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id), html: {method: :delete}, local: true) do |f| %>
           <%= f.submit "フォロー解除" %>

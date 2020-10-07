@@ -2,7 +2,9 @@
   <div class="user_show_name">
     <p class="user_image"><%= image_tag @user.image.url %></p>
     <h2><%= @user.name %></h2>
-    <%= link_to "プロフィールを編集", edit_user_registration_path, class: "user_edit" %>
+    <% if @user.id == current_user.id %>
+      <%= link_to "プロフィールを編集", edit_user_registration_path, class: "user_edit" %>
+    <% end %>
   </div>
   <div class="follow_follower_number">
     <%= link_to "フォロー：#{@user.following.count}", user_following_path(@user) %>

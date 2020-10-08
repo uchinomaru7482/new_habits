@@ -6,34 +6,34 @@
 
     <div class="sign_up_field">
       <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input_area" %>
     </div>
 
     <div class="sign_up_field">
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: "input_area" %>
     </div>
 
     <div class="sign_up_field">
       <%= f.label :image %>
-      <%= f.file_field :image %>
+      <%= f.file_field :image, class: "input_area" %>
     </div>
 
     <div class="sign_up_field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> 文字以上)</em>
-      <% end %><br>
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "input_area" %>
     </div>
 
     <div class="sign_up_field">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input_area" %>
     </div>
 
     <div class="sign_up_field">
-      <%= f.submit "新規登録" %>
+      <%= f.submit "新規登録", class: "input_area" %>
     </div>
   <% end %>
 

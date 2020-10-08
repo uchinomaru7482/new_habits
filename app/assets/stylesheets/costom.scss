@@ -362,25 +362,51 @@ header {
 
 
 /* devise#registrations#new, #edit */
-#main {
-  
-  .sign_up_field, .edit_field {
-    margin: 1em 0;
-  }
 
-  .edit_field_info {
-    font-size: 0.8em;
-  }
-}
+.registrations, .sessions, .passwords, .confirmations {
+  display: initial;
+  text-align: center;
 
-/* devise#sessions#new */
-#main {
-  
-  .log_in_field {
-    margin: 1em 0;
+  #main {
+    .alert {
+      font-size: 1em;
+      color: red;
+    }
 
-    .remember_me {
-      display: inline-block;
+    #error_explanation {
+      color: red;
+    }
+
+    .log_in_field, .sign_up_field, .password_reset_field, .resend_confirmation_field {
+      width: 17em;
+      margin: 2em auto;
+
+      label {
+        text-align: left;
+      }
+
+      .input_area {
+        height: 2em;
+        width: 20em;
+      }
+
+      .remember_me {
+        display: inline-block;
+      }
+
+      em {
+        display: block;
+        text-align: left;
+        font-size: 0.8em;
+      }
+    }
+
+    a {
+      font-size: 0.8em;
+    }
+
+    .edit_field_info {
+      font-size: 0.8em;
     }
   }
 }
@@ -400,6 +426,10 @@ header {
     background-position: top;
     background-repeat: no-repeat;
     height: 60em;
+
+    .alert {
+      text-align: center;
+    }
   }
 
   h1 {

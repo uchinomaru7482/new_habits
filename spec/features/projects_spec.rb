@@ -6,21 +6,35 @@ RSpec.feature "Projects", type: :feature do
 	let(:habit) {FactoryBot.create(:habit, owner: user)}
 
   describe "user" do
+  	background do
+  		ActionMailer::Base.deliveries.clear
+  	end
+
 	  scenario "user sign up" do
 	  	visit "/"
-	  	click_link "新規登録"
+	  	within ".app_title" do
+	  	  click_link "新規登録"
+	  	end
 	  	fill_in "メールアドレス", with: "example@example.com"
 	  	fill_in "ニックネーム", with: "example"
 	  	fill_in "パスワード", with: "aaaaaaaa"
 	  	fill_in "パスワード確認", with: "aaaaaaaa"
-	  	click_button "新規登録"
 
-	  	expect(page).to have_content "ようこそ！アカウント登録が完了しました。"
+	  	expect{click_button "新規登録"}.to change{ActionMailer::Base.deliveries.size}.by(1)
+	  	expect(page).to have_content "確認メールを送信しました。リンクをクリックしてアカウントを有効にして下さい。"
+
+	  	user = User.last
+	  	token = user.confirmation_token
+	  	visit user_confirmation_path(confirmation_token: token)
+
+	  	expect(page).to have_content "メールアドレスの確認が完了しました。"
 	  end
 
 	  scenario "user sign in" do
 	  	visit "/"
-	  	click_link "ログイン"
+	  	within ".app_title" do
+	  	  click_link "ログイン"
+	  	end
 	    fill_in "メールアドレス", with: user.email
 	    fill_in "パスワード", with: user.password	
 	    click_button "ログイン"

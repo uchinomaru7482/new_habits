@@ -367,6 +367,10 @@ header {
   display: initial;
   text-align: center;
 
+  header {
+    display: none;
+  }
+
   #main {
     .alert {
       font-size: 1em;
@@ -377,7 +381,7 @@ header {
       color: red;
     }
 
-    .log_in_field, .sign_up_field, .password_reset_field, .resend_confirmation_field {
+    .log_in_field, .sign_up_field, .edit_field, .password_reset_field, .resend_confirmation_field {
       width: 17em;
       margin: 2em auto;
 
@@ -394,7 +398,7 @@ header {
         display: inline-block;
       }
 
-      em {
+      em, .edit_field_info {
         display: block;
         text-align: left;
         font-size: 0.8em;

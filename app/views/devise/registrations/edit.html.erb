@@ -6,12 +6,12 @@
 
     <div class="edit_field">
       <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input_area" %>
     </div>
 
     <div class="edit_field">
       <%= f.label :image %>
-      <%= f.file_field :image %>
+      <%= f.file_field :image, class: "input_area" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -20,7 +20,7 @@
 
     <div class="edit_field">
       <%= f.label :password %> <p class="edit_field_info">(変更しない場合は入力しないで下さい)</p>
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "input_area" %>
       <% if @minimum_password_length %>
         <em><%= @minimum_password_length %> 文字以上</em>
       <% end %>
@@ -28,16 +28,16 @@
 
     <div class="edit_field">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input_area" %>
     </div>
 
     <div class="edit_field">
       <%= f.label :current_password %>
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "input_area" %>
     </div>
 
     <div class="edit_field">
-      <%= f.submit "保存" %>
+      <%= f.submit "保存", class: "input_area" %>
     </div>
   <% end %>
 

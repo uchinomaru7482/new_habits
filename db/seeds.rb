@@ -8,12 +8,12 @@
 
 today = Date.today
 
-profiles = [{email: "yumi@example.com", 	name: "yumi", 		password: "aaaaaaaa", password_confirmation: "aaaaaaaa"},
-         		{email: "taro@example.com", 	name: "たろう", 		password: "aaaaaaaa", password_confirmation: "aaaaaaaa"},
-         		{email: "akari@example.com", 	name: "あかり", 		password: "aaaaaaaa", password_confirmation: "aaaaaaaa"},
-         		{email: "shohei@example.com", name: "翔平", 			password: "aaaaaaaa", password_confirmation: "aaaaaaaa"},
-         		{email: "tekki@example.com", 	name: "テッキー", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa"},
-         		{email: "kazuto@example.com", name: "kazuto", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa"}]
+profiles = [{email: "yumi@example.com", 	name: "yumi", 		password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now},
+         		{email: "taro@example.com", 	name: "たろう", 		password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now},
+         		{email: "akari@example.com", 	name: "あかり", 		password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now},
+         		{email: "shohei@example.com", name: "翔平", 			password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now},
+         		{email: "tekki@example.com", 	name: "テッキー", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now},
+         		{email: "kazuto@example.com", name: "kazuto", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now}]
 
 habits1 = [{content: "1時間本を読む",     	record_type: false, total_days: 6, total_time: 9, continuation_days: 6},
 					 {content: "30分ジョギングする", 	record_type: false, total_days: 1, total_time: 1, continuation_days: 1},

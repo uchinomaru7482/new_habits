@@ -1,4 +1,8 @@
 <div class="app_title">
+	<% flash.each do |message_type, message| %>
+  	<%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+	<% end %>
+	
 	<h1>New Habits</h1>
 	<p class="sub_title">新しい習慣を始めよう</p>
 

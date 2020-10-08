@@ -75,16 +75,21 @@ RSpec.feature "Projects", type: :feature do
 	  end
 
 	  scenario "edit user" do
+
 	  	sign_in_as user
 	  	click_link "プロフィール"
 	  	click_link "プロフィールを編集"
 	  	fill_in "メールアドレス", with: "edittester@example.com"
 	  	fill_in "現在のパスワード", with: "aaaaaaaa"
-	  	click_button "保存"
-	  	edit_user = User.find(user.id)
 
-	  	expect(page).to have_content "アカウントが更新されました。"
-	  	expect(edit_user.email).to eq "edittester@example.com"
+	  	expect{click_button "保存"}.to change{ActionMailer::Base.deliveries.size}.by(1)
+	  	expect(page).to have_content "アカウントは正常に更新されましたが、新しいメールアドレスを確認する必要があります。"
+
+	  	edit_user = User.find(user.id)
+	  	token = edit_user.confirmation_token
+	  	visit user_confirmation_path(confirmation_token: token)
+
+	  	expect(page).to have_content "メールアドレスの確認が完了しました。"
 	  end
   end
 

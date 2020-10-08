@@ -1,7 +1,9 @@
 module LoginSupport
   def sign_in_as(user)
   	visit "/"
-  	click_link "ログイン"
+  	within ".app_title" do
+	  	click_link "ログイン"
+	  end
   	fill_in "メールアドレス", with: user.email
     fill_in "パスワード", with: user.password	
     click_button "ログイン"

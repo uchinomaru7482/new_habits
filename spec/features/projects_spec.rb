@@ -13,7 +13,7 @@ RSpec.feature "Projects", type: :feature do
 	  scenario "user sign up" do
 	  	visit "/"
 	  	within ".app_title" do
-	  	  click_link "新規登録"
+	  		click_link "新規登録" 
 	  	end
 	  	fill_in "メールアドレス", with: "example@example.com"
 	  	fill_in "ニックネーム", with: "example"

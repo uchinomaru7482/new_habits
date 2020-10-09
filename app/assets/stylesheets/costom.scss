@@ -197,6 +197,29 @@ header {
   }
 }
 
+/* pagination */
+.pagination {
+  text-align: center;
+  margin: 1em;
+
+  span {
+    margin: 0 0.5em;
+
+    a {
+      border: 1px;
+      color: #aaa;
+
+      span {
+        margin: 0;
+      }
+    }
+
+    a:hover {
+      color: #000;
+    }
+  }
+}
+
 /* 使用する場合はbody内grid-template-rowsに追記
   footer {
   grid-row: 2/3;

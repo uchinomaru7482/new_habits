@@ -27,6 +27,7 @@
   <% end %>
 
   <%= render partial: "shared/post", locals: {show_delete_button: true}, collection: @posts %>
+  <%= paginate @posts %>
 </div>
 
 <div id="sidebar">

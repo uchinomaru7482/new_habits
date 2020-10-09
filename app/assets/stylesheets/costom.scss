@@ -197,6 +197,23 @@ header {
   }
 }
 
+/* static_pages#help */
+#main {
+  
+  .help_title {
+    font-size: 1.3em;
+    margin-left: 0.8em;
+  }
+
+  .help_content {
+    margin-left: 1em;
+
+    .mgl {
+      margin-left: 1.1em;
+    }
+  }
+}
+
 /* pagination */
 .pagination {
   text-align: center;

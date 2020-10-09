@@ -11,10 +11,10 @@
 	<p>初めての方</p>
 	<div class="signup_link"><%= link_to "新規登録", new_user_registration_path %></div>
 	<p>テストユーザーでログインする</p>
-	<%= form_with model: @user, url: user_session_path do |f| %>
+	<%= form_with model: @user, url: user_session_path, class: "test_signin_form" do |f| %>
 	  <%= f.hidden_field :email, value: "yumi@example.com" %>
 	  <%= f.hidden_field :password, value: "aaaaaaaa" %>
-	  <%= f.submit "テストユーザーログイン" %>
+	  <%= f.submit "テストユーザーログイン", class: "test_signin_button" %>
 	<% end %>
 </div>
 
@@ -56,9 +56,9 @@
 	<p>初めての方</p>
 	<div class="signup_link"><%= link_to "新規登録", new_user_registration_path %></div>
 	<p>テストユーザーでログインする</p>
-	<%= form_with model: @user, url: user_session_path do |f| %>
+	<%= form_with model: @user, url: user_session_path, class: "test_signin_form" do |f| %>
 	  <%= f.hidden_field :email, value: "yumi@example.com" %>
 	  <%= f.hidden_field :password, value: "aaaaaaaa" %>
-	  <%= f.submit "テストユーザーログイン" %>
+	  <%= f.submit "テストユーザーログイン", class: "test_signin_button" %>
 	<% end %>
 </div>

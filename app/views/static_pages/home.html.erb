@@ -4,6 +4,7 @@
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
   <% end %>
   <%= render partial: "shared/post", locals: {show_delete_button: false}, collection: @posts %>
+  <%= paginate @posts %>
 </div>
 
 <div id="sidebar">

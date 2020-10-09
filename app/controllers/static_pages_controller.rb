@@ -11,6 +11,7 @@ class StaticPagesController < ApplicationController
   end
 
   def lp
+    @user = User.new
   end
 
   def help

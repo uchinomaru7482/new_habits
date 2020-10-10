@@ -27,23 +27,23 @@ URL
 
 ## 開発環境、使用技術
 
-【バックエンド】  
+【バックエンド】
 * Ruby
-* Ruby on Rails
-【フロントエンド】  
+* Ruby on Rails  
+【フロントエンド】
 * HTML
-* CSS
-【データベース】  
-* My SQL
-【テスト】  
-* Rspec
-【本番環境】  
+* CSS  
+【データベース】
+* My SQL  
+【テスト】
+* Rspec  
+【本番環境】
 * AWS(未)
 * Nginx
-* Puma
-【開発環境】  
-* Docker, Docker-compose(未)
-【その他】  
+* Puma  
+【開発環境】
+* Docker, Docker-compose(未)  
+【その他】
 * Git
 * GitHub
 

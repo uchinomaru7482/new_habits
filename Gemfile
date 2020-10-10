@@ -71,3 +71,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
 gem 'rubocop', require: false
+gem 'rubocop-rails', require: false

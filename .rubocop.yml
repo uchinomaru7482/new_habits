@@ -7,6 +7,7 @@ AllCops:
     - '.git/**/*'
     - 'bin/*'
     - 'config/**/*'
+    - 'app/channels/**/*'
     - 'db/schema.rb'
 
 # 日本語のコメントを許可する
@@ -29,4 +30,16 @@ Layout/ExtraSpacing:
   Enabled: false
 
 Lint/NonDeterministicRequireOrder:
+  Enabled: false
+
+# コンパクトスタイルをデフォルトにする
+ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+# classの説明コメントは不要とする
+Style/Documentation:
+  Enabled: false
+
+# フローズンリテラルコメントは不要とする
+Style/FrozenStringLiteralComment:
   Enabled: false

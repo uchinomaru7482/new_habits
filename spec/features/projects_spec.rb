@@ -95,7 +95,7 @@ RSpec.feature "Projects", type: :feature do
     scenario "register a check type habit" do
       sign_in_as user
 
-      expect {
+      expect do
         click_link "習慣登録"
         fill_in "習慣名", with: "習慣登録テスト"
         click_button "登録"
@@ -103,13 +103,13 @@ RSpec.feature "Projects", type: :feature do
         expect(page).to have_content "習慣を登録しました"
         expect(page).to have_content "習慣登録テスト"
         expect(page).to_not have_content "トータル時間　：0時間"
-      }.to change(user.habits, :count).by(1)
+      end.to change(user.habits, :count).by(1)
     end
 
     scenario "register a record type habit" do
       sign_in_as user
 
-      expect {
+      expect do
         click_link "習慣登録"
         fill_in "習慣名", with: "習慣登録テスト"
         choose "habit_record_type_false"
@@ -118,12 +118,12 @@ RSpec.feature "Projects", type: :feature do
         expect(page).to have_content "習慣を登録しました"
         expect(page).to have_content "習慣登録テスト"
         expect(page).to have_content "トータル時間　：0時間"
-      }.to change(user.habits, :count).by(1)
+      end.to change(user.habits, :count).by(1)
     end
 
     scenario "remove a habit" do
       habit = FactoryBot.create(:habit, owner: user)
-      post = FactoryBot.create(:post, habit: habit)
+      FactoryBot.create(:post, habit: habit)
       sign_in_as user
       click_link "プロフィール"
       within ".habit" do
@@ -135,7 +135,7 @@ RSpec.feature "Projects", type: :feature do
     end
 
     scenario "edit a habit" do
-      habit = FactoryBot.create(:habit, owner: user)
+      FactoryBot.create(:habit, owner: user)
       sign_in_as user
       click_link "プロフィール"
       click_link "編集"
@@ -151,7 +151,7 @@ RSpec.feature "Projects", type: :feature do
       habit = FactoryBot.create(:habit, record_type: true, owner: user)
       sign_in_as user
 
-      expect {
+      expect do
         click_link "今日の成果を投稿"
         fill_in "今日の成果", with: "テストを行った"
         check "post[check]"
@@ -160,14 +160,14 @@ RSpec.feature "Projects", type: :feature do
         expect(page).to have_content "テストを行った"
         expect(page).to have_content "継続日数　　　：1日"
         expect(page).to have_content "トータル日数　：1日"
-      }.to change(habit.posts, :count).by(1)
+      end.to change(habit.posts, :count).by(1)
     end
 
     scenario "post achievements without check" do
       habit = FactoryBot.create(:habit, record_type: true, owner: user)
       sign_in_as user
 
-      expect {
+      expect do
         click_link "今日の成果を投稿"
         fill_in "今日の成果", with: "テストを行った"
         click_button "投稿"
@@ -175,14 +175,14 @@ RSpec.feature "Projects", type: :feature do
         expect(page).to have_content "テストを行った"
         expect(page).to have_content "継続日数　　　：0日"
         expect(page).to have_content "トータル日数　：0日"
-      }.to change(habit.posts, :count).by(1)
+      end.to change(habit.posts, :count).by(1)
     end
 
     scenario "post achievements with time" do
-      achievement = FactoryBot.create(:achievement, :created_at_yesterday, habit: habit)
+      FactoryBot.create(:achievement, :created_at_yesterday, habit: habit)
       sign_in_as user
 
-      expect {
+      expect do
         click_link "今日の成果を投稿"
         fill_in "今日の成果", with: "テストを行った"
         fill_in "post_report", with: 2
@@ -190,11 +190,11 @@ RSpec.feature "Projects", type: :feature do
 
         expect(page).to have_content "テストを行った"
         expect(page).to have_content "トータル時間　：3時間"
-      }.to change(habit.posts, :count).by(1)
+      end.to change(habit.posts, :count).by(1)
     end
 
     scenario "remove a post" do
-      post = FactoryBot.create(:post, habit: habit)
+      FactoryBot.create(:post, habit: habit)
       sign_in_as user
       click_link "プロフィール"
       within ".post" do

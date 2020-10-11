@@ -42,10 +42,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def protect_test_user
-    if current_user.email == "yumi@example.com"
-      flash[:notice] = "テストユーザーの為変更できません"
-      redirect_to root_path
-    end
+    return unless current_user.email == "yumi@example.com"
+
+    flash[:notice] = "テストユーザーの為変更できません"
+    redirect_to root_path
   end
 
   protected

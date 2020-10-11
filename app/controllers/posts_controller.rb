@@ -41,11 +41,11 @@ class PostsController < ApplicationController
   end
 
   def achievement_params
-    if @habit.record_type == false
-      parameter = [:report, :check]
-    else
-      parameter = [:check]
-    end
+    parameter = if @habit.record_type == false
+                  [:report, :check]
+                else
+                  [:check]
+                end
     params.require(:post).permit(parameter)
   end
 
@@ -60,9 +60,7 @@ class PostsController < ApplicationController
     else
       @today = Date.current.all_day
       @achievement = @habit.achievements.find_by(created_at: @today)
-      if @achievement.check == false && params[:post][:check] == "true"
-        @achievement.check = params[:post][:check]
-      end
+      @achievement.check = params[:post][:check] if @achievement.check == false && params[:post][:check] == "true"
       @achievement.report += params[:post][:report].to_i if @habit.record_type == false
     end
     @achievement.save

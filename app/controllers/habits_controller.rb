@@ -38,7 +38,7 @@ class HabitsController < ApplicationController
   end
 
   private
-  
+
   def habit_params
     params.require(:habit).permit(:user_id, :content, :record_type, :open_range)
   end

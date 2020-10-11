@@ -6,160 +6,40 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleAlignWith, Severity.
-# SupportedStylesAlignWith: keyword, variable, start_of_line
-#Layout/EndAlignment:
-#  Exclude:
-#    - 'app/controllers/habits_controller.rb'
-
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
-#Layout/ExtraSpacing:
-#  Exclude:
-#    - 'db/seeds.rb'
-
-# Offense count: 21
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: normal, indented_internal_methods
-#Layout/IndentationConsistency:
-#  Exclude:
-#    - 'app/controllers/habits_controller.rb'
-#    - 'app/controllers/posts_controller.rb'
-#    - 'app/controllers/users_controller.rb'
-#    - 'app/models/habit.rb'
-#    - 'spec/features/projects_spec.rb'
-#    - 'spec/support/login_support.rb'
-
-# Offense count: 277
-# Cop supports --auto-correct.
-# Configuration parameters: IndentationWidth, EnforcedStyle.
-# SupportedStyles: spaces, tabs
-#Layout/IndentationStyle:
-#  Exclude:
-#    - 'app/controllers/habits_controller.rb'
-#    - 'app/controllers/posts_controller.rb'
-#    - 'app/controllers/relationships_controller.rb'
-#    - 'app/controllers/static_pages_controller.rb'
-#    - 'app/controllers/users_controller.rb'
-#    - 'app/models/habit.rb'
-#    - 'config/routes.rb'
-#    - 'db/seeds.rb'
-#    - 'spec/factories/achievements.rb'
-#    - 'spec/features/projects_spec.rb'
-#    - 'spec/models/achievement_spec.rb'
-#    - 'spec/models/habit_spec.rb'
-#    - 'spec/models/post_spec.rb'
-#    - 'spec/models/user_spec.rb'
-#    - 'spec/support/login_support.rb'
-
-# Offense count: 48
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/controllers/habits_controller.rb'
-    - 'app/controllers/posts_controller.rb'
-    - 'app/controllers/relationships_controller.rb'
-    - 'app/controllers/static_pages_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'app/models/habit.rb'
-    - 'config/routes.rb'
-    - 'db/seeds.rb'
-    - 'spec/factories/achievements.rb'
-    - 'spec/features/projects_spec.rb'
-    - 'spec/models/achievement_spec.rb'
-    - 'spec/models/habit_spec.rb'
-    - 'spec/models/post_spec.rb'
-    - 'spec/models/user_spec.rb'
-    - 'spec/support/login_support.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowDoxygenCommentStyle, AllowGemfileRubyComment.
-Layout/LeadingCommentSpace:
-  Exclude:
-    - 'app/models/habit.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Layout/SpaceAfterColon:
-  Exclude:
-    - 'db/seeds.rb'
-
-# Offense count: 9
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForEmptyBraces.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceBeforeBlockBraces:
-  EnforcedStyle: space
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBrackets: space, no_space
-Layout/SpaceInsideArrayLiteralBrackets:
-  Exclude:
-    - 'config/environments/production.rb'
-
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideBlockBraces:
-  Exclude:
-    - 'db/seeds.rb'
-    - 'spec/factories/posts.rb'
-    - 'spec/factories/users.rb'
-
-# Offense count: 82
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForEmptyBraces.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: space
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: final_newline, final_blank_line
-Layout/TrailingEmptyLines:
-  Exclude:
-    - 'db/seeds.rb'
-    - 'spec/support/login_support.rb'
+#Layout/TrailingEmptyLines:
+#  Exclude:
+#    - 'db/seeds.rb'
+#    - 'spec/support/login_support.rb'
 
 # Offense count: 10
 # Cop supports --auto-correct.
 # Configuration parameters: AllowInHeredoc.
-Layout/TrailingWhitespace:
-  Exclude:
-    - 'app/controllers/habits_controller.rb'
-    - 'app/controllers/relationships_controller.rb'
-    - 'app/controllers/static_pages_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'config/routes.rb'
-    - 'spec/features/projects_spec.rb'
-    - 'spec/support/login_support.rb'
+#Layout/TrailingWhitespace:
+#  Exclude:
+#    - 'app/controllers/habits_controller.rb'
+#    - 'app/controllers/relationships_controller.rb'
+#    - 'app/controllers/static_pages_controller.rb'
+#    - 'app/controllers/users_controller.rb'
+#    - 'config/routes.rb'
+#    - 'spec/features/projects_spec.rb'
+#    - 'spec/support/login_support.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Lint/NonDeterministicRequireOrder:
-  Exclude:
-    - 'spec/rails_helper.rb'
+#Lint/NonDeterministicRequireOrder:
+#  Exclude:
+#    - 'spec/rails_helper.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods, IgnoreNotImplementedMethods.
-Lint/UnusedMethodArgument:
-  Exclude:
-    - 'app/uploaders/user_image_uploader.rb'
+#Lint/UnusedMethodArgument:
+#  Exclude:
+#    - 'app/uploaders/user_image_uploader.rb'
 
 # Offense count: 15
 Lint/UselessAssignment:

@@ -27,3 +27,6 @@ Layout/CommentIndentation:
 # スペースがあった方が見やすい
 Layout/ExtraSpacing:
   Enabled: false
+
+Lint/NonDeterministicRequireOrder:
+  Enabled: false

@@ -12,7 +12,7 @@ RSpec.feature "Projects", type: :feature do
     scenario "user sign up" do
       visit "/"
       within ".app_title" do
-        click_link "新規登録" 
+        click_link "新規登録"
       end
       fill_in "メールアドレス", with: "example@example.com"
       fill_in "ニックネーム", with: "example"
@@ -35,7 +35,7 @@ RSpec.feature "Projects", type: :feature do
         click_link "ログイン"
       end
       fill_in "メールアドレス", with: user.email
-      fill_in "パスワード", with: user.password	
+      fill_in "パスワード", with: user.password
       click_button "ログイン"
 
       expect(page).to have_content "ログインしました。"
@@ -200,7 +200,7 @@ RSpec.feature "Projects", type: :feature do
       within ".post" do
         click_link "削除"
       end
-      
+
       expect(habit.posts).to be_empty
     end
   end

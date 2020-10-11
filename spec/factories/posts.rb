@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :post do
-    sequence(:content) {|n| "テスト#{n}を行った"}
+    sequence(:content) { |n| "テスト#{n}を行った" }
     association :habit
-    user {habit.owner}
+    user { habit.owner }
   end
 end

@@ -5,7 +5,6 @@ class Habit < ApplicationRecord
 
   validates :content, presence: true, length: { maximum: 40 }
   validates :record_type, inclusion: { in: [true, false] }
-  #validates :open_range, presence: true, numericality: {less_than_or_equal_to: 2}
 
   def count_total_days
     Achievement.where(habit_id: self.id).where(check: true).count

@@ -10,7 +10,7 @@ class HabitsController < ApplicationController
 
   def create
   	@habit = current_user.habits.build(habit_params)
-  	if @habit.save
+    if @habit.save
   	  flash[:success] = "習慣を登録しました"
   	  redirect_to "/"
     else

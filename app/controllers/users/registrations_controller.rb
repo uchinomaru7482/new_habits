@@ -40,6 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
   def protect_test_user
     if current_user.email == "yumi@example.com"
       flash[:notice] = "テストユーザーの為変更できません"

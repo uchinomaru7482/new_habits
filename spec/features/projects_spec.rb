@@ -93,7 +93,7 @@ RSpec.feature "Projects", type: :feature do
 	  end
   end
 
-  describe "habit" do
+	describe "habit" do
 	  scenario "register a check type habit" do
 	    sign_in_as user
 

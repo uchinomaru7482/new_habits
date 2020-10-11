@@ -6,84 +6,25 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 6
-# Cop supports --auto-correct.
-# Configuration parameters: TreatCommentsAsGroupSeparators, ConsiderPunctuation, Include.
-# Include: **/*.gemfile, **/Gemfile, **/gems.rb
-# Bundler/OrderedGems:
-#   Exclude:
-#     - 'Gemfile'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: with_first_argument, with_fixed_indentation
-Layout/ArgumentAlignment:
-  Exclude:
-    - 'config/application.rb'
-
-# Offense count: 14
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: with_first_element, with_fixed_indentation
-Layout/ArrayAlignment:
-  Exclude:
-    - 'db/seeds.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleAlignWith.
-# SupportedStylesAlignWith: either, start_of_block, start_of_line
-Layout/BlockAlignment:
-  Exclude:
-    - 'spec/features/projects_spec.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Layout/CommentIndentation:
-  Exclude:
-    - 'app/uploaders/user_image_uploader.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Layout/ElseAlignment:
-  Exclude:
-    - 'app/controllers/habits_controller.rb'
-    - 'app/controllers/static_pages_controller.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Layout/EmptyLines:
-  Exclude:
-    - 'db/migrate/20200623123416_devise_create_users.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: around, only_before
-Layout/EmptyLinesAroundAccessModifier:
-  Exclude:
-    - 'app/controllers/users/registrations_controller.rb'
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'db/schema.rb'
-    - 'spec/features/projects_spec.rb'
-    - 'spec/models/user_spec.rb'
+#Layout/EmptyLinesAroundBlockBody:
+#  Exclude:
+#    - 'db/schema.rb'
+#    - 'spec/features/projects_spec.rb'
+#    - 'spec/models/user_spec.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
-Layout/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/habits_controller.rb'
-    - 'app/controllers/posts_controller.rb'
+#Layout/EmptyLinesAroundClassBody:
+#  Exclude:
+#    - 'app/controllers/application_controller.rb'
+#    - 'app/controllers/habits_controller.rb'
+#    - 'app/controllers/posts_controller.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

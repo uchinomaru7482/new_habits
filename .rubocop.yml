@@ -20,3 +20,6 @@ Style/HashSyntax:
 # gemは並び替えない
 Bundler/OrderedGems:
   Enabled: false
+
+Layout/CommentIndentation:
+  Enabled: false

@@ -1,11 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Post, type: :model do
   it "is valid with a content" do
     habit = FactoryBot.create(:habit)
     Post.new(
       content: "今日は「具体と抽象」を読んだ",
-      user_id: habit.user_id,
+      user_id: habit.user_id
     )
   end
 

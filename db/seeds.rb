@@ -34,13 +34,13 @@ achievements1 = [{ check: true, report: 1 },
                  { check: true, report: 2 },
                  { check: true, report: 0 },
                  { check: true, report: 0 },
-                 { check: true, report: 0 },]
+                 { check: true, report: 0 }]
 
 yumi_posts = [{ user_id: 1, content: "今日は「具体と抽象」という本を読んだ。頭が良くなった気がする。",               created_at: today - 1 },
               { user_id: 1, content: "今日は「時間革命」という本を読んだ。無駄な事をしている時間はないと感じた。",     created_at: today - 2 },
               { user_id: 1, content: "今日は「メモの魔力」という本を読んだ。明日からやってみようと思う。",            created_at: today - 3 },
               { user_id: 1, content: "今日は「Railsチュートリアル」という本を読んだ。Railsの基礎を理解した。",       created_at: today - 4 },
-              { user_id: 1, content: "今日は「Ruby入門」という本を読んだ。rubyの基礎が分かった。",                  created_at: today - 5 },]
+              { user_id: 1, content: "今日は「Ruby入門」という本を読んだ。rubyの基礎が分かった。",                  created_at: today - 5 }]
 
 yumi_achievements = [{ check: true, report: 2, created_at: today - 1 },
                      { check: true, report: 1, created_at: today - 2 },

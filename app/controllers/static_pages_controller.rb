@@ -11,10 +11,10 @@ class StaticPagesController < ApplicationController
   end
 
   def lp
-    unless user_signed_in?
-      @user = User.new
-    else
+    if user_signed_in?
       redirect_to root_path
+    else
+      @user = User.new
     end
   end
 

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   it "is valid with an email, name and password, and password_confirmation" do
@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
       email: "tester@example.com",
       name: "たかあき",
       password: "aaaaaaaa",
-      password_confirmation: "aaaaaaaa",
+      password_confirmation: "aaaaaaaa"
     )
     expect(user).to be_valid
   end

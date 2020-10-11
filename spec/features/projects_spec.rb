@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Projects", type: :feature do
   let(:user) { FactoryBot.create(:user) }
@@ -59,18 +59,18 @@ RSpec.feature "Projects", type: :feature do
       click_link "プロフィール"
       click_link "フォロー：1"
 
-      expect(page).to have_content "#{user2.name}"
+      expect(page).to have_content user2.name
 
       click_link "ホーム"
 
-      expect(page).to have_content "#{post2.content}"
+      expect(page).to have_content post2.content
 
       click_link "ログアウト"
       sign_in_as user2
       click_link "プロフィール"
       click_link "フォロワー：1"
 
-      expect(page).to have_content "#{user1.name}"
+      expect(page).to have_content user1.name
     end
 
     scenario "edit user" do

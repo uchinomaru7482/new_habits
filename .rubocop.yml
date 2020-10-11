@@ -5,10 +5,14 @@ AllCops:
     - 'node_modules/**/*'
     - 'vendor/**/*'
     - '.git/**/*'
-    - 'bin/*'
     - 'config/**/*'
     - 'app/channels/**/*'
+    - 'bin/*'
+    - 'app/mailers/*'
     - 'db/schema.rb'
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'config.ru'
 
 # 日本語のコメントを許可する
 Style/AsciiComments:
@@ -18,9 +22,31 @@ Style/AsciiComments:
 Style/HashSyntax:
   EnforcedStyle: ruby19
 
-# gemは並び替えない
-Bundler/OrderedGems:
+# classの説明コメントは不要とする
+Style/Documentation:
   Enabled: false
+
+# フローズンリテラルコメントは不要とする
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# selfは許容する
+Style/RedundantSelf:
+  Enabled: false
+
+# デフォルトはダブルクォーテーション 
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+# コンパクトスタイルをデフォルトにする
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
 
 Layout/CommentIndentation:
   Enabled: false
@@ -29,17 +55,12 @@ Layout/CommentIndentation:
 Layout/ExtraSpacing:
   Enabled: false
 
+Layout/LineLength:
+  Max: 150
+
 Lint/NonDeterministicRequireOrder:
   Enabled: false
 
-# コンパクトスタイルをデフォルトにする
-ClassAndModuleChildren:
-  EnforcedStyle: compact
-
-# classの説明コメントは不要とする
-Style/Documentation:
-  Enabled: false
-
-# フローズンリテラルコメントは不要とする
-Style/FrozenStringLiteralComment:
+# gemは並び替えない
+Bundler/OrderedGems:
   Enabled: false

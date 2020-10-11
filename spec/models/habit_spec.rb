@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Habit, type: :model do
   it "is valid with a content and record_type" do
@@ -6,7 +6,7 @@ RSpec.describe Habit, type: :model do
     habit = Habit.new(
       content: "毎日読書をする",
       record_type: false,
-      user_id: user.id,
+      user_id: user.id
     )
     expect(habit).to be_valid
   end

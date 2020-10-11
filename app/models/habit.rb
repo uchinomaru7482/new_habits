@@ -3,8 +3,8 @@ class Habit < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :achievements, dependent: :destroy
 
-  validates :content, presence: true, length: {maximum: 40}
-  validates :record_type, inclusion: {in: [true, false]}
+  validates :content, presence: true, length: { maximum: 40 }
+  validates :record_type, inclusion: { in: [true, false] }
   #validates :open_range, presence: true, numericality: {less_than_or_equal_to: 2}
 
   def count_total_days

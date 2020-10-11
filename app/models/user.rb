@@ -13,7 +13,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  validates :name, presence: true, length: {maximum: 20}
+  validates :name, presence: true, length: { maximum: 20 }
 
   def follow(other_user)
     self.following << other_user

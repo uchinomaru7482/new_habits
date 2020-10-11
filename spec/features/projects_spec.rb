@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
 
-	let(:user) {FactoryBot.create(:user)}
-	let(:habit) {FactoryBot.create(:habit, owner: user)}
+	let(:user) { FactoryBot.create(:user) }
+	let(:habit) { FactoryBot.create(:habit, owner: user) }
 
   describe "user" do
   	background do
@@ -20,7 +20,7 @@ RSpec.feature "Projects", type: :feature do
 	  	fill_in "パスワード", with: "aaaaaaaa"
 	  	fill_in "パスワード確認", with: "aaaaaaaa"
 
-	  	expect{click_button "新規登録"}.to change{ActionMailer::Base.deliveries.size}.by(1)
+	  	expect { click_button "新規登録" }.to change { ActionMailer::Base.deliveries.size }.by(1)
 	  	expect(page).to have_content "確認メールを送信しました。リンクをクリックしてアカウントを有効にして下さい。"
 
 	  	user = User.last
@@ -82,7 +82,7 @@ RSpec.feature "Projects", type: :feature do
 	  	fill_in "メールアドレス", with: "edittester@example.com"
 	  	fill_in "現在のパスワード", with: "aaaaaaaa"
 
-	  	expect{click_button "保存"}.to change{ActionMailer::Base.deliveries.size}.by(1)
+	  	expect { click_button "保存" }.to change { ActionMailer::Base.deliveries.size }.by(1)
 	  	expect(page).to have_content "アカウントは正常に更新されましたが、新しいメールアドレスを確認する必要があります。"
 
 	  	edit_user = User.find(user.id)
@@ -97,7 +97,7 @@ RSpec.feature "Projects", type: :feature do
 	  scenario "register a check type habit" do
 	    sign_in_as user
 
-	    expect{
+	    expect {
 	      click_link "習慣登録"
 	      fill_in "習慣名", with: "習慣登録テスト"
 	      click_button "登録"
@@ -111,7 +111,7 @@ RSpec.feature "Projects", type: :feature do
 	  scenario "register a record type habit" do
 	    sign_in_as user
 
-	    expect{
+	    expect {
 	      click_link "習慣登録"
 	      fill_in "習慣名", with: "習慣登録テスト"
 	      choose "habit_record_type_false"
@@ -153,7 +153,7 @@ RSpec.feature "Projects", type: :feature do
 	  	habit = FactoryBot.create(:habit, record_type: true, owner: user)
 	  	sign_in_as user
 
-	    expect{
+	    expect {
 	      click_link "今日の成果を投稿"
 	      fill_in "今日の成果", with: "テストを行った"
 	      check "post[check]"
@@ -169,7 +169,7 @@ RSpec.feature "Projects", type: :feature do
 	  	habit = FactoryBot.create(:habit, record_type: true, owner: user)
 	  	sign_in_as user
 
-	    expect{
+	    expect {
 	      click_link "今日の成果を投稿"
 	      fill_in "今日の成果", with: "テストを行った"
 	      click_button "投稿"
@@ -184,7 +184,7 @@ RSpec.feature "Projects", type: :feature do
 	  	achievement = FactoryBot.create(:achievement, :created_at_yesterday, habit: habit)
 	  	sign_in_as user
 
-	    expect{
+	    expect {
 	      click_link "今日の成果を投稿"
 	      fill_in "今日の成果", with: "テストを行った"
 	      fill_in "post_report", with: 2

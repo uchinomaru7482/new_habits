@@ -8,7 +8,7 @@
 
 today = Date.today
 
-profiles = [{ email: "yumi@example.com",   name: "yumi", 		password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
+profiles = [{ email: "yumi@example.com",   name: "yumi",    password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
             { email: "taro@example.com",   name: "たろう", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
             { email: "akari@example.com",  name: "あかり", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
             { email: "shohei@example.com", name: "翔平", 		password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
@@ -32,7 +32,7 @@ posts1 = [{ user_id: 1, content: "今日は「お金の真理」という本を�
 achievements1 = [{ check: true, report: 1 },
                  { check: true, report: 1 },
                  { check: true, report: 2 },
-               	 { check: true, report: 0 },
+                 { check: true, report: 0 },
                  { check: true, report: 0 },
                  { check: true, report: 0 },]
 
@@ -49,10 +49,10 @@ yumi_achievements = [{ check: true, report: 2, created_at: today - 1 },
                      { check: true, report: 1, created_at: today - 5 }]
 
 6.times {|n|
-	user = User.create(profiles[n])
-	habit = user.habits.create(habits1[n])
-	post = habit.posts.create(posts1[n])
-	achievement = habit.achievements.create(achievements1[n])
+  user = User.create(profiles[n])
+  habit = user.habits.create(habits1[n])
+  post = habit.posts.create(posts1[n])
+  achievement = habit.achievements.create(achievements1[n])
 }
 
 5.times {|n|

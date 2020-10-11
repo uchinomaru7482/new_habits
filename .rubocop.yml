@@ -23,3 +23,7 @@ Bundler/OrderedGems:
 
 Layout/CommentIndentation:
   Enabled: false
+
+# スペースがあった方が見やすい
+Layout/ExtraSpacing:
+  Enabled: false

@@ -21,7 +21,7 @@ class Habit < ApplicationRecord
   end
 
   def count_total_time
-  	time = 0
+    time = 0
     self.achievements.each do |achievement|
       time += achievement.report
     end

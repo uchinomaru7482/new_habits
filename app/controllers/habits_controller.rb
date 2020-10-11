@@ -1,5 +1,4 @@
 class HabitsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :correct_user, only: [:update, :destroy]
 
@@ -9,13 +8,13 @@ class HabitsController < ApplicationController
   end
 
   def create
-  	@habit = current_user.habits.build(habit_params)
+    @habit = current_user.habits.build(habit_params)
     if @habit.save
-  	  flash[:success] = "習慣を登録しました"
-  	  redirect_to "/"
+      flash[:success] = "習慣を登録しました"
+      redirect_to "/"
     else
       @habits = Habit.where(user_id: current_user.id)
-  	  render "new"
+      render "new"
     end
   end
 
@@ -45,7 +44,7 @@ class HabitsController < ApplicationController
   end
 
   def correct_user
-  	@habit = current_user.habits.find_by(id: params[:id])
-  	redirect_to "/" if @habit.nil?
+    @habit = current_user.habits.find_by(id: params[:id])
+    redirect_to "/" if @habit.nil?
   end
 end

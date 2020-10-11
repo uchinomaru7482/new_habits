@@ -7,3 +7,16 @@ AllCops:
     - '.git/**/*'
     - 'bin/*'
     - 'config/**/*'
+    - 'db/schema.rb'
+
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
+
+# hash書き方の指定
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+
+# gemは並び替えない
+Bundler/OrderedGems:
+  Enabled: false

@@ -18,31 +18,31 @@
             <ul class="header_link">
               <li>
                 <%= link_to "/" do %>
-                  <%= image_tag "header_image/home" %>
+                  <%= image_tag "/images/header_image/home.png" %>
                   ホーム
                 <% end %>
               </li>
               <li>
                 <%= link_to  "/users/#{current_user.id}" do %>
-                  <%= image_tag "header_image/profile" %>
+                  <%= image_tag "/images/header_image/profile.png" %>
                   プロフィール
                 <% end %>
               </li>
               <li>
                 <%= link_to new_habit_path do %>
-                  <%= image_tag "header_image/habit" %>
+                  <%= image_tag "/images/header_image/habit.png" %>
                   習慣登録
                 <% end %>
               </li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
-                  <%= image_tag "header_image/logout" %>
+                  <%= image_tag "/images/header_image/logout.png" %>
                   ログアウト
                 <% end %>
               </li>
               <li>
                 <%= link_to help_path do %>
-                  <%= image_tag "header_image/help" %>
+                  <%= image_tag "/images/header_image/help.png" %>
                   ヘルプ
                 <% end %>
               </li>

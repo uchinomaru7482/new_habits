@@ -49,24 +49,24 @@ yumi_achievements = [{ check: true, report: 2, created_at: today - 1 },
                      { check: true, report: 1, created_at: today - 5 }]
 
 6.times do |n|
-  user = User.create(profiles[n])
-  habit = user.habits.create(habits1[n])
-  habit.posts.create(posts1[n])
-  habit.achievements.create(achievements1[n])
+  user = User.create!(profiles[n])
+  habit = user.habits.create!(habits1[n])
+  habit.posts.create!(posts1[n])
+  habit.achievements.create!(achievements1[n])
 end
 
 5.times do |n|
   habit = Habit.find_by(content: "1時間本を読む")
-  habit.posts.create(yumi_posts[n])
-  habit.achievements.create(yumi_achievements[n])
+  habit.posts.create!(yumi_posts[n])
+  habit.achievements.create!(yumi_achievements[n])
 end
 
 user = User.find(1)
-habit = user.habits.create(content: "毎日自炊する", record_type: true, total_days: 2, continuation_days: 1)
-habit.posts.create(user_id: 1, content: "青椒肉絲を作った。本格中華を家で作ることができて嬉しい。")
-habit.posts.create(user_id: 1, content: "餃子を作った。実家の味が再現できていたような気がする。", created_at: today - 2)
-habit.achievements.create(check: true)
-habit.achievements.create(check: true, created_at: today - 2)
+habit = user.habits.create!(content: "毎日自炊する", record_type: true, total_days: 2, continuation_days: 1)
+habit.posts.create!(user_id: 1, content: "青椒肉絲を作った。本格中華を家で作ることができて嬉しい。")
+habit.posts.create!(user_id: 1, content: "餃子を作った。実家の味が再現できていたような気がする。", created_at: today - 2)
+habit.achievements.create!(check: true)
+habit.achievements.create!(check: true, created_at: today - 2)
 
 users = User.all
 user = User.find(1)

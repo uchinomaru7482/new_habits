@@ -1,0 +1,20 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7.31
+    environment:
+      MYSQL_DATABASE: new_habits_development
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+  web:
+    build: .
+    command: bundle exec rails s -b "0.0.0.0"
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/myapp

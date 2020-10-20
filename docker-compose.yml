@@ -5,6 +5,7 @@ services:
     environment:
       MYSQL_DATABASE: new_habits_development
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - "3306:3306"
   web:

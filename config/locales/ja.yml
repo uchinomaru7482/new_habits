@@ -4,6 +4,8 @@ ja:
       default: "%Y/%m/%d %H:%M"
   activerecord:
     attributes:
+      comment:
+        content: "投稿内容"
       habit:
         content: "習慣名"
         record_type: "習慣の種類"

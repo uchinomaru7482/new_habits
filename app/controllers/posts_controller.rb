@@ -29,6 +29,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @habits = Habit.where(user_id: current_user.id)
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+  end
+
   def destroy
     Post.find(params[:id]).destroy
     redirect_to "/users/#{current_user.id}"

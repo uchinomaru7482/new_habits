@@ -15,5 +15,5 @@
   <% if show_delete_button == true && post.user.id == current_user.id %>
     <p class="post_delete_button"><%= link_to "削除", post_path(post), method: :delete %></p>
   <% end %>
-  <p><%= link_to "コメントを見る", post_path(post) %></p>
+  <p class="comment_button"><%= link_to "コメントを見る", post_path(post) %></p>
 </div>

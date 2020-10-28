@@ -78,11 +78,11 @@ header {
   border-left: solid 1px #eee;
   min-height: 94vh;
 
-  .post{
+  .post, .comment {
     padding: 1em 0;
     border-bottom: solid 1px #eee;
 
-    .post_header{
+    .post_header, .comment_header {
       overflow: hidden;
 
       p {
@@ -139,11 +139,22 @@ header {
 
     }
 
-    .post_content {
+    .post_content, .comment_content {
       padding-left: 3.5em;
+      padding-top: 0.3em;
+      padding-bottom: 0.3em;
     }
+
     .post_image {
       padding-left: 3.5em;
+    }
+
+    .comment_button {
+      padding-left: 3.5em;
+
+      a {
+        font-size: 0.8em;
+      }
     }
   }
 }
@@ -291,6 +302,7 @@ header {
     .post_delete_button {
       float: right;
       padding: 0 1em;
+      font-size: 0.8em;
     }
   }
 }
@@ -370,10 +382,10 @@ header {
   }
 }
 
-/* posts#new */
+/* posts#new, #show */
 #main {
   
-  .post_content_form {
+  .post_content_form, .comment_content_form {
     margin: 1em 0;
 
     textarea {
@@ -398,8 +410,17 @@ header {
       display: inline-block;
     }
   }
-}
 
+  .comment {
+    overflow: hidden;
+
+    .comment_delete_button {
+      float: right;
+      padding: 0 1em;
+      font-size: 0.8em;
+    }
+  }
+}
 
 /* devise#registrations#new, #edit */
 

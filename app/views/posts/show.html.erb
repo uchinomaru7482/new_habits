@@ -29,17 +29,17 @@
   <% end %>
 
   <% @post.comments.each do |comment| %>
-    <div>
-      <p><%= image_tag comment.user.image.url %></p>
-      <p><%= comment.user.name %></p>
-      <p><%= l comment.created_at %></p>
+    <div class="comment">
+      <div class="comment_header">
+        <p class="user_image"><%= image_tag comment.user.image.url %></p>
+        <p class="user_name"><%= comment.user.name %></p>
+        <p class="time_stamp"><%= l comment.created_at %></p>
+      </div>
+      <div class="comment_content"><%= simple_format(comment.content) %></div>
+      <% if comment.user.id == current_user.id %>
+        <p class="comment_delete_button"><%= link_to "削除", comment_path(comment), method: :delete %></p>
+      <% end %>
     </div>
-    <div>
-      <p><%= simple_format(comment.content) %></p>
-    </div>
-    <% if comment.user.id == current_user.id %>
-      <p><%= link_to "削除", comment_path(comment), method: :delete %></p>
-    <% end %>
   <% end %>
 </div>
 

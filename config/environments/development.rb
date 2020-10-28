@@ -71,4 +71,5 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+  config.reload_classes_only_on_change = false
 end

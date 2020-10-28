@@ -16,7 +16,7 @@ profiles = [{ email: "yumi@example.com",   name: "yumi",    password: "aaaaaaaa"
             { email: "kazuto@example.com", name: "kazuto", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now }]
 
 habits1 = [{ content: "1時間本を読む",     	record_type: false, total_days: 6, total_time: 9, continuation_days: 6 },
-           { content: "30分ジョギングする", 	record_type: false, total_days: 1, total_time: 1, continuation_days: 1 },
+           { content: "1時間ジョギングする", record_type: false, total_days: 6, total_time: 7, continuation_days: 4 },
            { content: "2時間勉強する",			record_type: false, total_days: 1, total_time: 2, continuation_days: 1 },
            { content: "筋トレをする",      	record_type: true,  total_days: 1,                continuation_days: 1 },
            { content: "コードを書く",			 	record_type: true,  total_days: 1,                continuation_days: 1 },
@@ -48,6 +48,25 @@ yumi_achievements = [{ check: true, report: 2, created_at: today - 1 },
                      { check: true, report: 1, created_at: today - 4 },
                      { check: true, report: 1, created_at: today - 5 }]
 
+taro_posts = [{ user_id: 2, content: "河川敷をジョギングした。登校する学生を見て懐かしい気持ちになった。",  created_at: today - 1 },
+              { user_id: 2, content: "神社まで走った。15kmくらいあったと思う。",                        created_at: today - 2 },
+              { user_id: 2, content: "公園をジョギングした。ちょっと右足が痛い。",                       created_at: today - 3 },
+              { user_id: 2, content: "河川敷をジョギングした。足が筋肉痛になっている。",                  created_at: today - 5 },
+              { user_id: 2, content: "国道沿いに3km程走った。学生の時ほどスムーズに走れない。",            created_at: today - 6 }]
+
+taro_achievements = [{ check: true, report: 1, created_at: today - 1 },
+                     { check: true, report: 1, created_at: today - 2 },
+                     { check: true, report: 2, created_at: today - 3 },
+                     { check: true, report: 1, created_at: today - 4 },
+                     { check: true, report: 1, created_at: today - 5 }]
+
+comments = [[{ user_id: 2, content: "おもしろそう！",      created_at: today }, { user_id: 3, content: "私も読んでみたいです。", created_at: today }],
+            [{ user_id: 3, content: "すごい！",           created_at: today }, { user_id: 4, content: "すっかり秋ですね。。。", created_at: today }],
+            [{ user_id: 4, content: "素晴らしい！",        created_at: today }, { user_id: 5, content: "明日も頑張りましょう！", created_at: today }],
+            [{ user_id: 5, content: "マッチョ！",         created_at: today }, { user_id: 6, content: "頑張ってますね！",       created_at: today }],
+            [{ user_id: 6, content: "どんなアプリですか？", created_at: today }, { user_id: 1, content: "すごそうですね。",      created_at: today }],
+            [{ user_id: 1, content: "散歩いいですね。",    created_at: today }, { user_id: 2, content: "健康的！",              created_at: today }]]
+
 6.times do |n|
   user = User.create!(profiles[n])
   habit = user.habits.create!(habits1[n])
@@ -56,21 +75,33 @@ yumi_achievements = [{ check: true, report: 2, created_at: today - 1 },
 end
 
 5.times do |n|
-  habit = Habit.find_by(content: "1時間本を読む")
-  habit.posts.create!(yumi_posts[n])
-  habit.achievements.create!(yumi_achievements[n])
+  yumi_habit = Habit.find_by(content: "1時間本を読む")
+  yumi_habit.posts.create!(yumi_posts[n])
+  yumi_habit.achievements.create!(yumi_achievements[n])
+  taro_habit = Habit.find_by(content: "1時間ジョギングする")
+  taro_habit.posts.create!(taro_posts[n])
+  taro_habit.achievements.create!(taro_achievements[n])
+end
+
+6.times do |n|
+  post = Post.find(n + 1)
+  2.times do |m|
+    post.comments.create!(comments[n][m])
+  end
 end
 
 user = User.find(1)
 habit = user.habits.create!(content: "毎日自炊する", record_type: true, total_days: 2, continuation_days: 1)
-habit.posts.create!(user_id: 1, content: "青椒肉絲を作った。本格中華を家で作ることができて嬉しい。")
+post = habit.posts.create!(user_id: 1, content: "青椒肉絲を作った。本格中華を家で作ることができて嬉しい。")
 habit.posts.create!(user_id: 1, content: "餃子を作った。実家の味が再現できていたような気がする。", created_at: today - 2)
 habit.achievements.create!(check: true)
 habit.achievements.create!(check: true, created_at: today - 2)
+post.comments.create!(user_id: 2, content: "美味しそう！", created_at: today)
+post.comments.create!(user_id: 3, content: "本格的！", created_at: today)
 
 users = User.all
 user = User.find(1)
-following = users[2..6]
-followers = users[3..6]
+following = users[1..5]
+followers = users[2..5]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }

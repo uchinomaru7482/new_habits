@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "Projects", type: :feature do
   let(:user) { FactoryBot.create(:user) }
   let(:habit) { FactoryBot.create(:habit, owner: user) }
-  let(:post) { FactoryBot.create(:post, habit: habit, user: user)}
+  let(:post) { FactoryBot.create(:post, habit: habit, user: user) }
 
   describe "user" do
     background do

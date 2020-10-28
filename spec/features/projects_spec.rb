@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.feature "Projects", type: :feature do
   let(:user) { FactoryBot.create(:user) }
   let(:habit) { FactoryBot.create(:habit, owner: user) }
+  let(:post) { FactoryBot.create(:post, habit: habit, user: user)}
 
   describe "user" do
     background do
@@ -202,6 +203,30 @@ RSpec.feature "Projects", type: :feature do
       end
 
       expect(habit.posts).to be_empty
+    end
+  end
+
+  describe "comment" do
+    scenario "post a comment" do
+      post = FactoryBot.create(:post, habit: habit, user: user)
+      sign_in_as user
+
+      expect do
+        click_link "コメントを見る"
+        fill_in "コメント", with: "テストコメント"
+        click_button "投稿"
+
+        expect(page).to have_content "テストコメント"
+      end.to change(post.comments, :count).by(1)
+    end
+
+    scenario "remove a comment" do
+      FactoryBot.create(:comment, post: post, user: user)
+      sign_in_as user
+      click_link "コメントを見る"
+      click_link "削除"
+
+      expect(post.comments).to be_empty
     end
   end
 end

@@ -13,8 +13,8 @@ class PostsController < ApplicationController
   def create
     @habit = Habit.find(params[:habit_id])
     @post = @habit.posts.build(post_params)
-    @post.user_id = @habit.user_id
-    if @post.user_id == current_user.id && @post.save
+    @post.user_id = current_user.id
+    if @post.save
       save_achievement
       @habit.total_days = @habit.count_total_days if params[:post][:check] == "true"
       @habit.continuation_days = @habit.count_continuation_days if params[:post][:check] == "true"

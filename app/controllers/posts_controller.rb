@@ -44,12 +44,7 @@ class PostsController < ApplicationController
   end
 
   def achievement_params
-    parameter = if @habit.record_type == false
-                  [:report, :check]
-                else
-                  [:check]
-                end
-    params.require(:post).permit(parameter)
+    params.require(:post).permit(:report, :check)
   end
 
   def correct_user
@@ -62,7 +57,7 @@ class PostsController < ApplicationController
       @achievement = @habit.achievements.build(achievement_params)
     else
       @achievement = @habit.achievements.find_by(created_at: @@today)
-      @achievement.check = params[:post][:check] if @achievement.check == false && params[:post][:check] == "true"
+      @achievement.check = params[:post][:check] if @achievement.check == false
       @achievement.report += params[:post][:report].to_i if @habit.record_type == false
     end
     @achievement.save

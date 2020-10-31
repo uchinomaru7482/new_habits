@@ -1,3 +1,24 @@
-// Place all the styles related to the Habits controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* habits#new */
+#main {
+  .field_with_errors {
+    display: contents;
+  }
+
+  label {
+    display: block;
+    font-size: 0.8em;
+  }
+
+  .habit_content_form {
+    margin: 1em 0;
+
+    input {
+      height: 1.5em;
+      border-radius: 4px;
+    }
+  }
+
+  .habit_record_type_form {
+    margin: 1em 0;
+  }
+}

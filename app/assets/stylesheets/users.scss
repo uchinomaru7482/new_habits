@@ -1,3 +1,153 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* users#show */
+#main {
+
+  .user_show_name {
+    overflow: hidden;
+
+    .user_edit {
+      line-height: 4em;
+      float: right;
+    }
+
+    p, h2 {
+      float: left;
+    }
+
+    .user_image {
+      width: 3.5em;
+      height: 3.5em;
+      position: relative;
+      overflow: hidden;
+      border-radius: 3.5em;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .follow_number {
+    padding-left: 4.5em;
+  }
+
+  .follow_button {
+    padding-left: 4.5em;
+  }
+
+  .post {
+    overflow: hidden;
+
+    .post_delete_button {
+      float: right;
+      padding: 0 1em;
+      font-size: 0.8em;
+    }
+  }
+}
+
+#sidebar {
+  
+  .habit_button {
+    overflow: hidden;
+
+    li {
+      float: left;
+    }
+
+    .habit_edit_button, .habit_delete_button {
+      padding: 0.3em 0 0.3em 0.3em;
+      margin: 0.3em 0 0.3em 0.3em;
+      font-size: 0.8em;
+    }
+  }
+}
+
+/* users#show_follow */
+#main {
+  .follow_user {
+    overflow: hidden;
+    padding: 1em 0;
+
+    p {
+      float: left;
+    }
+
+    .follow_user_image {
+      width: 2.5em;
+      height: 2.5em;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2.5em;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .follow_user_name {
+      font-weight: bold;
+      line-height: 2.5em;
+      padding: 0 1em;
+    }
+  }
+}
+
+/* devise#registrations#new, #edit */
+
+.registrations, .sessions, .passwords, .confirmations {
+  display: initial;
+  text-align: center;
+
+  header {
+    display: none;
+  }
+
+  #main {
+    .alert {
+      font-size: 1em;
+      color: red;
+    }
+
+    #error_explanation {
+      color: red;
+    }
+
+    .log_in_field, .sign_up_field, .edit_field, .password_reset_field, .resend_confirmation_field {
+      width: 17em;
+      margin: 2em auto;
+
+      label {
+        text-align: left;
+      }
+
+      .input_area {
+        height: 2em;
+        width: 20em;
+      }
+
+      .remember_me {
+        display: inline-block;
+      }
+
+      em, .edit_field_info {
+        display: block;
+        text-align: left;
+        font-size: 0.8em;
+      }
+    }
+
+    a {
+      font-size: 0.8em;
+    }
+
+    .edit_field_info {
+      font-size: 0.8em;
+    }
+  }
+}

@@ -243,7 +243,9 @@ header {
   .habit_registration {
     height: 15em;
     width: 45em;
-    margin: 8em auto;
+    margin: 0 auto;
+    padding: 4em 3em;
+    border-bottom: solid 1px #aaa;
 
     .habit_registration_image {
       display: inline-block;
@@ -273,7 +275,9 @@ header {
   .post {
     height: 15em;
     width: 39em;
-    margin: 8em auto;
+    margin: 0 auto;
+    padding: 4em 6em;
+    border-bottom: solid 1px #aaa;
 
     .post_title {
       text-align: center;
@@ -287,9 +291,12 @@ header {
   }
 
   .habit_management {
-    height: 15em;
+    height: 12em;
     width: 45em;
-    margin: 8em auto;
+    margin: 0 auto;
+    margin-bottom: 4em;
+    padding: 4em 3em;
+    border-bottom: solid 1px #aaa;
 
     .habit_management_image {
       display: inline-block;

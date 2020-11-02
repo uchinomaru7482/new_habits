@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   resources :habits do
     resources :posts, only: [:new, :create]
+    get :search, on: :collection
   end
   resources :posts, only: [:show, :destroy] do
     resources :comments, only: [:create]

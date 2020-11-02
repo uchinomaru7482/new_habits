@@ -186,6 +186,12 @@ header {
   .help_content {
     margin-left: 1em;
 
+    h3, h4 {
+      font-size: 1em;
+      line-height: 2em;
+      margin: 0;
+    }
+
     .mgl {
       margin-left: 1.1em;
     }

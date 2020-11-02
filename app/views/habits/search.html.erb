@@ -1,19 +1,21 @@
 <div id="main">
   <h1>習慣検索</h1>
   <%= form_with url: search_habits_path, method: :get, local: true do |f| %>
-    <%= f.label :habit_name, "キーワードを入力" %>
-    <%= f.text_field :habit_name %>
-    <%= f.submit "検索" %>
+    <div class="search_habit_form">
+      <%= f.label :habit_name, "キーワードを入力" %>
+      <%= f.text_field :habit_name, class: "text_field" %>
+      <%= f.submit "検索" %>
+    </div>
   <% end %>
 
   <% @search_habits.each do |habit| %>
-    <div>
-      <div>
-        <p><%= image_tag habit.owner.image.url %></p>
-        <p><%= link_to "#{habit.owner.name}", user_path(habit.owner) %></p>
+    <div class="search_habit">
+      <div class="habit_header">
+        <p class="user_image"><%= image_tag habit.owner.image.url %></p>
+        <p class="user_name"><%= link_to "#{habit.owner.name}", user_path(habit.owner) %></p>
       </div>
-      <div>
-        <p>習慣名：<%= habit.content %></p>
+      <div class="habit_content">
+        <p class="habit_name">習慣名：<%= habit.content %></p>
       </div>
     </div>
   <% end %>

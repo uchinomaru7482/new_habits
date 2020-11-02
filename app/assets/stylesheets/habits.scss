@@ -22,3 +22,55 @@
     margin: 1em 0;
   }
 }
+
+/* habits#search */
+#main {
+  
+  .search_habit_form {
+    margin: 1em 0;
+
+    .text_field {
+      width: 15em;
+      border-radius: 4px;
+      margin-right: 1em;
+    }
+  }
+
+  .search_habit {
+    padding: 1em 0;
+    border-bottom: solid 1px #eee;
+
+    .habit_header {
+      overflow: hidden;
+
+      p {
+        float: left;
+      }
+
+      .user_image {
+        width: 2.5em;
+        height: 2.5em;
+        position: relative;
+        overflow: hidden;
+        border-radius: 2.5em;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .user_name {
+        font-weight: bold;
+        line-height: 2.5em;
+        padding: 0 1em;
+      }
+    }
+
+    .habit_content {
+      padding-left: 3.5em;
+    }
+  }
+}

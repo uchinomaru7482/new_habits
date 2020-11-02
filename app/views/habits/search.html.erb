@@ -1,0 +1,23 @@
+<div id="main">
+	<h1>習慣検索</h1>
+	<%= form_with url: search_habits_path, method: :get, local: true do |f| %>
+	  <%= f.text_field :habit_name %>
+	  <%= f.submit :search %>
+	<% end %>
+
+	<% @search_habits.each do |habit| %>
+	  <div>
+	  	<div>
+	  		<p><%= image_tag habit.owner.image.url %></p>
+	  		<p><%= link_to "#{habit.owner.name}", user_path(habit.owner) %></p>
+	  	</div>
+	  	<div>
+	  		<p>習慣名：<%= habit.content %></p>
+	  	</div>
+	  </div>
+	<% end %>
+</div>
+
+<div id="sidebar">
+  <%= render partial: "shared/sidebar", locals: {show_edit_delete_button: false} %>
+</div>

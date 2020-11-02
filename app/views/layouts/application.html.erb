@@ -35,6 +35,12 @@
                 <% end %>
               </li>
               <li>
+                <%= link_to search_habits_path do %>
+                  <%= image_tag "/images/header_image/search.png" %>
+                  習慣検索
+                <% end %>
+              </li>
+              <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <%= image_tag "/images/header_image/logout.png" %>
                   ログアウト

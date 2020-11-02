@@ -39,11 +39,11 @@ class HabitsController < ApplicationController
 
   def search
     @habits = Habit.where(user_id: current_user.id)
-    if params[:habit_name].present?
-      @search_habits = Habit.where("content LIKE ?", "%#{params[:habit_name]}%")
-    else
-      @search_habits = Habit.none
-    end
+    @search_habits = if params[:habit_name].present?
+                       Habit.where("content LIKE ?", "%#{params[:habit_name]}%")
+                     else
+                       Habit.none
+                     end
   end
 
   private

@@ -148,7 +148,7 @@ RSpec.feature "Projects", type: :feature do
 
     scenario "search a habit" do
       other_user = FactoryBot.create(:user)
-      habit = FactoryBot.create(:habit, content: "習慣検索テスト", owner: other_user)
+      FactoryBot.create(:habit, content: "習慣検索テスト", owner: other_user)
       sign_in_as user
       click_link "習慣検索"
       fill_in "キーワードを入力", with: "習慣検索"

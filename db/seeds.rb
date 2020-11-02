@@ -9,29 +9,37 @@
 today = Date.today
 
 profiles = [{ email: "yumi@example.com",   name: "yumi",    password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "taro@example.com",   name: "たろう", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "akari@example.com",  name: "あかり", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "shohei@example.com", name: "翔平", 		password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
+            { email: "taro@example.com",   name: "たろう",   password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
+            { email: "akari@example.com",  name: "あかり",   password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
+            { email: "shohei@example.com", name: "翔平",     password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
             { email: "tekki@example.com",  name: "テッキー", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "kazuto@example.com", name: "kazuto", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now }]
+            { email: "kazuto@example.com", name: "kazuto",  password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
+            { email: "maeda@example.com",  name: "前田",     password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
+            { email: "kana@example.com",   name: "kana",    password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now }]
 
 habits1 = [{ content: "1時間本を読む",     	record_type: false, total_days: 6, total_time: 9, continuation_days: 6 },
            { content: "1時間ジョギングする", record_type: false, total_days: 6, total_time: 7, continuation_days: 4 },
-           { content: "2時間勉強する",			record_type: false, total_days: 1, total_time: 2, continuation_days: 1 },
+           { content: "2時間勉強する",      record_type: false, total_days: 1, total_time: 2, continuation_days: 1 },
            { content: "筋トレをする",      	record_type: true,  total_days: 1,                continuation_days: 1 },
-           { content: "コードを書く",			 	record_type: true,  total_days: 1,                continuation_days: 1 },
-           { content: "毎日散歩する",				record_type: true,  total_days: 1,                continuation_days: 1 }]
+           { content: "コードを書く",       record_type: true,  total_days: 1,                continuation_days: 1 },
+           { content: "毎日散歩する",	      record_type: true,  total_days: 1,                continuation_days: 1 },
+           { content: "英語の勉強をする",    record_type: true,  total_days: 1,                continuation_days: 1 },
+           { content: "韓国語の勉強をする",  record_type: true,  total_days: 1,                continuation_days: 1 }]
 
 posts1 = [{ user_id: 1, content: "今日は「お金の真理」という本を読んだ。お金との向き合い方について考えさせられた。" },
           { user_id: 2, content: "公園をジョギングした。最近気温が下がってきて気持ちがいい。" },
           { user_id: 3, content: "英語と数学を勉強した。また明日頑張ろうと思う。" },
           { user_id: 4, content: "腹筋100回、腕立て100回。プロテインが美味しい。" },
           { user_id: 5, content: "Railsでアプリケーションを作成した。完成が待ち遠しい。" },
-          { user_id: 6, content: "今日は河川敷を散歩した。いつも会うおじさんと挨拶した。" }]
+          { user_id: 6, content: "今日は河川敷を散歩した。いつも会うおじさんと挨拶した。" },
+          { user_id: 7, content: "英単語の勉強をした。20語程覚える事ができた。" },
+          { user_id: 8, content: "今日は韓国語で友だちと会話する事ができた。話せると楽しい。" }]
 
 achievements1 = [{ check: true, report: 1 },
                  { check: true, report: 1 },
                  { check: true, report: 2 },
+                 { check: true, report: 0 },
+                 { check: true, report: 0 },
                  { check: true, report: 0 },
                  { check: true, report: 0 },
                  { check: true, report: 0 }]
@@ -67,7 +75,7 @@ comments = [[{ user_id: 2, content: "おもしろそう！",      created_at: to
             [{ user_id: 6, content: "どんなアプリですか？", created_at: today }, { user_id: 1, content: "すごそうですね。",      created_at: today }],
             [{ user_id: 1, content: "散歩いいですね。",    created_at: today }, { user_id: 2, content: "健康的！",              created_at: today }]]
 
-6.times do |n|
+8.times do |n|
   user = User.create!(profiles[n])
   habit = user.habits.create!(habits1[n])
   habit.posts.create!(posts1[n])

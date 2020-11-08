@@ -1,0 +1,14 @@
+<div id="main">
+  <%= month_calendar events: @achievements do |date, achievements| %>
+    <div class ="date"><%= date.day %></div>
+    <% achievements.each do |achievement| %>
+      <% if achievement.check == true %>
+        <div class="check_true"></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="sidebar">
+  <%= render partial: "shared/sidebar", locals: {show_edit_delete_button: false} %>
+</div>

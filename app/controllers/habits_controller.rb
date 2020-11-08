@@ -18,6 +18,12 @@ class HabitsController < ApplicationController
     end
   end
 
+  def show
+    @habit = Habit.find(params[:id])
+    @habits = Habit.where(user_id: current_user.id)
+    @achievements = Achievement.where(habit_id: @habit.id)
+  end
+
   def edit
     @habit = Habit.find(params[:id])
     @habits = Habit.where(user_id: current_user.id)

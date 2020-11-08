@@ -6,4 +6,8 @@ class Achievement < ApplicationRecord
     achievement = habit.achievements.find_by(created_at: today)
     achievement.nil?
   end
+
+  def start_time
+  	self.created_at
+  end
 end

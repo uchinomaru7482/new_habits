@@ -4,7 +4,7 @@
     <% @habits.each do |habit| %>
       <div class="habit">
         <ul>
-          <li class="habit_name"><%= habit.content %></li>
+          <li class="habit_name"><%= link_to "#{habit.content}", habit_path(habit) %></li>
           <li>継続日数　　　：<%= habit.continuation_days %>日</li>
           <li>トータル日数　：<%= habit.total_days %>日</li>
           <% if habit.record_type == false %>

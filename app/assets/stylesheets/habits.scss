@@ -77,8 +77,18 @@
 
 /* habits#show */
 #main {
-  
+
+  .habit {
+    margin: 1em 0;
+
+    .habit_name {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+  }
+
   .simple-calendar {
+    margin: 1em 0;
 
     .day {
       position: relative;

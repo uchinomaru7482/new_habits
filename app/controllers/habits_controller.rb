@@ -22,6 +22,7 @@ class HabitsController < ApplicationController
     @habit = Habit.find(params[:id])
     @habits = Habit.where(user_id: current_user.id)
     @achievements = Achievement.where(habit_id: @habit.id)
+    @posts = @habit.posts.page(params[:page]).per(10)
   end
 
   def edit

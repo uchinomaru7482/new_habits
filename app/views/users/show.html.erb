@@ -31,5 +31,9 @@
 </div>
 
 <div id="sidebar">
-  <%= render partial: "shared/sidebar", locals: {show_edit_delete_button: true} %>
+  <% if @user.id == current_user.id %>
+    <%= render partial: "shared/sidebar", locals: {show_edit_delete_button: true} %>
+  <% else %>
+    <%= render partial: "sidebar" %>
+  <% end %>
 </div>

@@ -8,6 +8,6 @@ class Achievement < ApplicationRecord
   end
 
   def start_time
-    self.created_at
+    created_at
   end
 end

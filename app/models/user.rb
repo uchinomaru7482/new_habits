@@ -2,10 +2,10 @@ class User < ApplicationRecord
   mount_uploader :image, UserImageUploader
 
   has_many :habits, dependent: :destroy
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy, inverse_of: :follower
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy, inverse_of: :followed
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
@@ -17,14 +17,14 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 }
 
   def follow(other_user)
-    self.following << other_user
+    following << other_user
   end
 
   def unfollow(other_user)
-    self.active_relationships.find_by(followed_id: other_user.id).destroy
+    active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
   def following?(other_user)
-    self.following.include?(other_user)
+    following.include?(other_user)
   end
 end

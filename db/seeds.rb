@@ -6,16 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-today = Date.today
+today = Time.zone.today
 
-profiles = [{ email: "yumi@example.com",   name: "yumi",    password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "taro@example.com",   name: "たろう",   password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "akari@example.com",  name: "あかり",   password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "shohei@example.com", name: "翔平",     password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "tekki@example.com",  name: "テッキー", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "kazuto@example.com", name: "kazuto",  password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "maeda@example.com",  name: "前田",     password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now },
-            { email: "kana@example.com",   name: "kana",    password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.now }]
+profiles = [{ email: "yumi@example.com",   name: "yumi",    password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
+            { email: "taro@example.com",   name: "たろう",   password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
+            { email: "akari@example.com",  name: "あかり",   password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
+            { email: "shohei@example.com", name: "翔平",     password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
+            { email: "tekki@example.com",  name: "テッキー", 	password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
+            { email: "kazuto@example.com", name: "kazuto",  password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
+            { email: "maeda@example.com",  name: "前田",     password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
+            { email: "kana@example.com",   name: "kana",    password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current }]
 
 habits1 = [{ content: "1時間本を読む",     	record_type: false, total_days: 6, total_time: 9, continuation_days: 6 },
            { content: "1時間ジョギングする", record_type: false, total_days: 6, total_time: 7, continuation_days: 4 },

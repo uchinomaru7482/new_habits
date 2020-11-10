@@ -11,6 +11,6 @@ FactoryBot.define do
 
   trait :check_false do
     check false
-    created_at 2.day.ago
+    created_at 2.days.ago
   end
 end

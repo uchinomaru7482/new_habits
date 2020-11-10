@@ -2,13 +2,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: :destroy
 
-  @today = Date.current.all_day
-
   def new
     @habit = Habit.find(params[:habit_id])
     @habits = Habit.where(user_id: current_user.id)
     @post = Post.new
-    @achievement = @habit.achievements.find_by(created_at: @today)
+    @achievement = Achievement.find_by(habit_id: @habit.id, created_at: Time.current.all_day)
   end
 
   def create
@@ -21,7 +19,7 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       @habits = Habit.where(user_id: current_user.id)
-      @achievement = @habit.achievements.find_by(created_at: @today)
+      @achievement = Achievement.find_by(habit_id: @habit.id, created_at: Time.current.all_day)
       render "new"
     end
   end
@@ -56,7 +54,7 @@ class PostsController < ApplicationController
     if Achievement.already_save_achievement_today?(@habit)
       @achievement = @habit.achievements.build(achievement_params)
     else
-      @achievement = @habit.achievements.find_by(created_at: @today)
+      @achievement = Achievement.find_by(habit_id: @habit.id, created_at: Time.current.all_day)
       @achievement.check = params[:post][:check] if @achievement.check == false
       @achievement.report += params[:post][:report].to_i if @habit.record_type == Habit::REPORT_TYPE
     end

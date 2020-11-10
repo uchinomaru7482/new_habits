@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @habits = @user.habits
     @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(15)
   end
 

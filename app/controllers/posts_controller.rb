@@ -4,7 +4,6 @@ class PostsController < ApplicationController
 
   def new
     @habit = Habit.find(params[:habit_id])
-    @habits = Habit.where(user_id: current_user.id)
     @post = Post.new
     @achievement = Achievement.find_by(habit_id: @habit.id, created_at: Time.current.all_day)
   end
@@ -18,14 +17,12 @@ class PostsController < ApplicationController
       @habit.calculation_management_value
       redirect_to root_path
     else
-      @habits = Habit.where(user_id: current_user.id)
       @achievement = Achievement.find_by(habit_id: @habit.id, created_at: Time.current.all_day)
       render "new"
     end
   end
 
   def show
-    @habits = Habit.where(user_id: current_user.id)
     @post = Post.find(params[:id])
     @comment = Comment.new
   end

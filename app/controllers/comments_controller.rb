@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(@post)
     else
-      @habits = Habit.where(user_id: current_user.id)
       @post = Post.find(params[:post_id])
       render "posts/show"
     end

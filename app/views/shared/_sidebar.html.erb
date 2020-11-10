@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="habits_detail">
     <h2>習慣リスト</h2>
-    <% @habits.each do |habit| %>
+    <% current_user_habits.each do |habit| %>
       <div class="habit">
         <ul>
           <li class="habit_name"><%= link_to "#{habit.content}", habit_path(habit) %></li>

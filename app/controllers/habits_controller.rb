@@ -4,7 +4,6 @@ class HabitsController < ApplicationController
 
   def new
     @habit = Habit.new
-    @habits = Habit.where(user_id: current_user.id)
   end
 
   def create
@@ -13,21 +12,18 @@ class HabitsController < ApplicationController
       flash[:success] = "習慣を登録しました"
       redirect_to root_path
     else
-      @habits = Habit.where(user_id: current_user.id)
       render "new"
     end
   end
 
   def show
     @habit = Habit.find(params[:id])
-    @habits = Habit.where(user_id: current_user.id)
     @achievements = Achievement.where(habit_id: @habit.id)
     @posts = @habit.posts.page(params[:page]).per(10)
   end
 
   def edit
     @habit = Habit.find(params[:id])
-    @habits = Habit.where(user_id: current_user.id)
   end
 
   def update
@@ -45,7 +41,6 @@ class HabitsController < ApplicationController
   end
 
   def search
-    @habits = Habit.where(user_id: current_user.id)
     @search_habits = if params[:habit_name].present?
                        Habit.where("content LIKE ?", "%#{params[:habit_name]}%")
                      else

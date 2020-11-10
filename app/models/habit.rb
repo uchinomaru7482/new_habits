@@ -1,4 +1,7 @@
 class Habit < ApplicationRecord
+  CHECK_TYPE = true
+  REPORT_TYPE = false
+
   belongs_to :owner, class_name: "User", foreign_key: :user_id, inverse_of: :habits
   has_many :posts, dependent: :destroy
   has_many :achievements, dependent: :destroy
@@ -9,7 +12,7 @@ class Habit < ApplicationRecord
   def calculation_management_value
     self.total_days = count_total_days
     self.continuation_days = count_continuation_days
-    self.total_time = count_total_time if record_type == false
+    self.total_time = count_total_time if record_type == REPORT_TYPE
     save
   end
 

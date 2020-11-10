@@ -5,7 +5,7 @@ RSpec.describe Habit, type: :model do
     user = FactoryBot.create(:user)
     habit = Habit.new(
       content: "毎日読書をする",
-      record_type: false,
+      record_type: Habit::REPORT_TYPE,
       user_id: user.id
     )
     expect(habit).to be_valid

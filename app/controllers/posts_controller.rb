@@ -58,7 +58,7 @@ class PostsController < ApplicationController
     else
       @achievement = @habit.achievements.find_by(created_at: @today)
       @achievement.check = params[:post][:check] if @achievement.check == false
-      @achievement.report += params[:post][:report].to_i if @habit.record_type == false
+      @achievement.report += params[:post][:report].to_i if @habit.record_type == Habit::REPORT_TYPE
     end
     @achievement.save
   end

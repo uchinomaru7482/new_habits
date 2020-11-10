@@ -1,6 +1,6 @@
 class HabitsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user, only: [:update, :destroy]
+  before_action :correct_user, only: [:show, :update, :destroy]
 
   def new
     @habit = Habit.new

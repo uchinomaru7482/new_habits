@@ -33,10 +33,6 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# selfは許容する
-#Style/RedundantSelf:
-#  Enabled: false
-
 # デフォルトをダブルクォーテーションに指定 
 Style/StringLiterals:
   EnforcedStyle: double_quotes

@@ -11,7 +11,7 @@ class HabitsController < ApplicationController
     @habit = current_user.habits.build(habit_params)
     if @habit.save
       flash[:success] = "習慣を登録しました"
-      redirect_to "/"
+      redirect_to root_path
     else
       @habits = Habit.where(user_id: current_user.id)
       render "new"
@@ -33,7 +33,7 @@ class HabitsController < ApplicationController
   def update
     @habit = Habit.find(params[:id])
     if @habit.update(habit_params)
-      redirect_to "/"
+      redirect_to root_path
     else
       render "edit"
     end
@@ -61,6 +61,6 @@ class HabitsController < ApplicationController
 
   def correct_user
     @habit = current_user.habits.find_by(id: params[:id])
-    redirect_to "/" if @habit.nil?
+    redirect_to root_path if @habit.nil?
   end
 end

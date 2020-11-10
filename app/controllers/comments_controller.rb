@@ -30,6 +30,6 @@ class CommentsController < ApplicationController
 
   def correct_user
     @comment = current_user.comments.find_by(id: params[:id])
-    redirect_to "/" if @comment.nil?
+    redirect_to root_path if @comment.nil?
   end
 end

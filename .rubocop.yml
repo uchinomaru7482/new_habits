@@ -1,66 +1,68 @@
-inherit_from: .rubocop_todo.yml
+require:
+  - rubocop-rails
 
 AllCops:
+  TargetRubyVersion: 2.7.0
+  TargetRailsVersion: 5.2.4.3
   Exclude:
-    - 'node_modules/**/*'
-    - 'vendor/**/*'
-    - '.git/**/*'
-    - 'config/**/*'
-    - 'app/channels/**/*'
-    - 'bin/*'
-    - 'app/mailers/*'
-    - 'db/schema.rb'
-    - 'Gemfile'
-    - 'Rakefile'
-    - 'config.ru'
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - ".git/**/*"
+    - "config/**/*"
+    - "app/channels/**/*"
+    - "bin/*"
+    - "app/mailers/*"
+    - "db/migrate/*"
+    - "app/uploaders/*"
+    - "db/schema.rb"
+    - "spec/spec_helper.rb"
+    - "spec/rails_helper.rb"
+    - "Gemfile"
+    - "Rakefile"
+    - "config.ru"
 
-# 日本語のコメントを許可する
+# 日本語のコメントを許可
 Style/AsciiComments:
   Enabled: false
 
-# hash書き方の指定
-Style/HashSyntax:
-  EnforcedStyle: ruby19
-
-# classの説明コメントは不要とする
+# classの説明コメントは不要
 Style/Documentation:
   Enabled: false
 
-# フローズンリテラルコメントは不要とする
+# フローズンリテラルコメントは不要
 Style/FrozenStringLiteralComment:
   Enabled: false
 
 # selfは許容する
-Style/RedundantSelf:
-  Enabled: false
+#Style/RedundantSelf:
+#  Enabled: false
 
-# デフォルトはダブルクォーテーション 
+# デフォルトをダブルクォーテーションに指定 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+# シンボル、配列は%記法ではなく、[]を使用
 Style/SymbolArray:
-  Enabled: false
+  EnforcedStyle: brackets
 
-Style/BlockComments:
-  Enabled: false
-
-# コンパクトスタイルをデフォルトにする
+# デフォルトをコンパクトスタイルに指定
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 
-Layout/CommentIndentation:
-  Enabled: false
-
-# スペースがあった方が見やすい
+# 可読性を向上する為のスペースは許容
 Layout/ExtraSpacing:
   Enabled: false
 
 Layout/LineLength:
   Max: 150
 
-Lint/NonDeterministicRequireOrder:
-  Enabled: false
+Metrics/AbcSize:
+  Max: 25
 
-# gemは並び替えない
-Bundler/OrderedGems:
-  Enabled: false
+Metrics/BlockLength:
+  Max: 25
+  Exclude:
+    - "spec/**/*"
+
+Metrics/MethodLength:
+  Max: 15

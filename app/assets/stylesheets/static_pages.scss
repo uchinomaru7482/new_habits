@@ -264,7 +264,7 @@ header {
     height: 15em;
     width: 45em;
     margin: 0 auto;
-    padding: 4em 3em;
+    padding: 4em 8em;
     border-bottom: solid 1px #aaa;
 
     .habit_registration_image {
@@ -296,7 +296,7 @@ header {
     height: 15em;
     width: 39em;
     margin: 0 auto;
-    padding: 4em 6em;
+    padding: 4em 11em;
     border-bottom: solid 1px #aaa;
 
     .post_title {
@@ -305,17 +305,21 @@ header {
       font-size: 1.5em;
     }
 
+    .post_content {
+      margin: 1em;
+    }
+
     .post_image {
       border: solid 1px #999;
     }
   }
 
   .habit_management {
-    height: 12em;
-    width: 45em;
+    height: 46em;
+    width: 38em;
     margin: 0 auto;
     margin-bottom: 4em;
-    padding: 4em 3em;
+    padding: 4em 11em;
     border-bottom: solid 1px #aaa;
 
     .habit_management_image {
@@ -326,22 +330,18 @@ header {
     div {
       display: inline-block;
       vertical-align: top;
-      height: 15em;
-      width: 17em;
-      margin-left: 5em;
+      width: 38em;
     }
 
     .habit_management_title {
-      dhisplay: inline-block;
       margin: 0.7em;
       font-size: 1.5em;
-      text-align: left;
+      text-align: center;
     }
 
     .habit_management_content {
-      display: inline-block;
       margin: 1em;
-      text-align: left;
+      text-align: center;
     }
   }
 

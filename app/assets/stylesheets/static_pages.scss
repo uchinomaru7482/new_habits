@@ -41,13 +41,13 @@ header {
   -ms-grid-row: 1/2;
   -ms-grid-column: 2/3;
   padding: 1rem;
-  border-right: solid 1px #eee;
-  border-left: solid 1px #eee;
+  border-right: solid 1px #ddd;
+  border-left: solid 1px #ddd;
   min-height: 94vh;
 
   .post, .comment {
     padding: 1em 0;
-    border-bottom: solid 1px #eee;
+    border-bottom: solid 1px #ddd;
 
     .post_header, .comment_header {
       overflow: hidden;
@@ -155,7 +155,7 @@ header {
       top: -13px;
       left: 10px;
       padding: 0 0.5em;
-      background-color: #FFF;
+      background-color: #f2fff2;
       font-weight: bold;
     }
 

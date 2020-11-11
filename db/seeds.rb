@@ -17,8 +17,8 @@ profiles = [{ email: "yumi@example.com",   name: "yumi",    password: "aaaaaaaa"
             { email: "maeda@example.com",  name: "前田",     password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
             { email: "kana@example.com",   name: "kana",    password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current }]
 
-habits1 = [{ content: "1時間本を読む",     	record_type: false, total_days: 6, total_time: 9, continuation_days: 6 },
-           { content: "1時間ジョギングする", record_type: false, total_days: 6, total_time: 7, continuation_days: 4 },
+habits1 = [{ content: "1時間本を読む",     	record_type: false, total_days: 6, total_time: 9, continuation_days: 6, created_at: today - 5 },
+           { content: "1時間ジョギングする", record_type: false, total_days: 6, total_time: 7, continuation_days: 4, created_at: today - 6 },
            { content: "2時間勉強する",      record_type: false, total_days: 1, total_time: 2, continuation_days: 1 },
            { content: "筋トレをする",      	record_type: true,  total_days: 1,                continuation_days: 1 },
            { content: "コードを書く",       record_type: true,  total_days: 1,                continuation_days: 1 },
@@ -99,7 +99,7 @@ end
 end
 
 user = User.find(1)
-habit = user.habits.create!(content: "毎日自炊する", record_type: true, total_days: 2, continuation_days: 1)
+habit = user.habits.create!(content: "毎日自炊する", record_type: true, total_days: 2, continuation_days: 1, created_at: today - 2)
 post = habit.posts.create!(user_id: 1, content: "青椒肉絲を作った。本格中華を家で作ることができて嬉しい。")
 habit.posts.create!(user_id: 1, content: "餃子を作った。実家の味が再現できていたような気がする。", created_at: today - 2)
 habit.achievements.create!(check: true)

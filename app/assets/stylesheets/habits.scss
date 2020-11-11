@@ -89,6 +89,10 @@
 
   .simple-calendar {
     margin: 1em 0;
+    
+    .table {
+      background-color: #fff;
+    }
 
     .day {
       position: relative;

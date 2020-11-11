@@ -1,5 +1,5 @@
 <div id="main">
-  <h1>今日の積上を投稿</h1>
+  <h1>今日の成果を投稿</h1>
   <%= form_with model: [@habit, @post], local: true do |f| %>
     <%= render "shared/error_messages", model: f.object %>
     <div class="post_content_form">
@@ -17,7 +17,7 @@
     <% end %>
     <% if @achievement.nil? || @achievement.check == false %>
       <div class="post_check_form">
-        <%= f.label "目標達成チェック" %>
+        <%= f.label "習慣完了チェック" %>
         <%= f.check_box :check, {}, "true", "false" %>
       </div>
     <% end %>

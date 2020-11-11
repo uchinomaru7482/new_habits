@@ -6,9 +6,9 @@ body {
   display: grid;
   display: -ms-grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 2fr 3fr 2fr;
-  -ms-grid-rows: 1fr 4rem;
-  -ms-grid-columns: 2fr 3fr 2fr;
+  grid-template-columns: 4fr 5fr 4fr;
+  -ms-grid-rows: 1fr;
+  -ms-grid-columns: 4fr 5fr 4fr;
   background-color: #f2fff2;
 }
 

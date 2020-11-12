@@ -10,7 +10,7 @@
     <%= f.radio_button :record_type, true %>チェックタイプ　<%= f.radio_button :record_type, false %>記録タイプ
   </div>
   <% if title == "習慣登録情報編集" && @habit.record_type == Habit::REPORT_TYPE %>
-    <div>
+    <div class="habit_report_unit_form">
       <%= f.label :report_unit, "記録単位" %>
       <%= f.text_field :report_unit, size: 30 %>
     </div>

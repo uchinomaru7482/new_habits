@@ -8,6 +8,7 @@ class Habit < ApplicationRecord
 
   validates :content, presence: true, length: { maximum: 40 }
   validates :record_type, inclusion: { in: [true, false] }
+  validates :report_unit, presence: true, length: { maximum: 8 }
 
   def calculation_management_value
     self.total_days = count_total_days

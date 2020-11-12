@@ -29,6 +29,12 @@ RSpec.describe Habit, type: :model do
     expect(habit.errors[:record_type]).to include("は一覧にありません")
   end
 
+  it "is invalid without a report_unit more than the maximum characters" do
+    habit = FactoryBot.build(:habit, report_unit: "x" * 9)
+    habit.valid?
+    expect(habit.errors[:report_unit]).to include("は8文字以内で入力してください")
+  end
+
   it "returns total days" do
     achievement = FactoryBot.create(:achievement)
     habit = achievement.habit

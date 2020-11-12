@@ -141,9 +141,11 @@ RSpec.feature "Projects", type: :feature do
       click_link "プロフィール"
       click_link "編集"
       fill_in "習慣名", with: "習慣編集テスト"
+      fill_in "記録単位", with: "分"
       click_button "保存"
 
       expect(page).to have_content "習慣編集テスト"
+      expect(page).to have_content "分"
     end
 
     scenario "search a habit" do

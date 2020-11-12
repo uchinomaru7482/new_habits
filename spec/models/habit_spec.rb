@@ -60,6 +60,6 @@ RSpec.describe Habit, type: :model do
     habit = FactoryBot.create(:habit)
     FactoryBot.create(:achievement, :created_at_yesterday, habit: habit)
     FactoryBot.create(:achievement, habit: habit)
-    expect(habit.count_total_time).to eq 2
+    expect(habit.count_total_report).to eq 2
   end
 end

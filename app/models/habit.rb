@@ -13,7 +13,7 @@ class Habit < ApplicationRecord
   def calculation_management_value
     self.total_days = count_total_days
     self.continuation_days = count_continuation_days
-    self.total_time = count_total_time if record_type == REPORT_TYPE
+    self.total_report = count_total_report if record_type == REPORT_TYPE
     save
   end
 
@@ -35,11 +35,11 @@ class Habit < ApplicationRecord
     count_days
   end
 
-  def count_total_time
-    time = 0
+  def count_total_report
+    report = 0
     achievements.each do |achievement|
-      time += achievement.report
+      report += achievement.report
     end
-    time
+    report
   end
 end

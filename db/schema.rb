@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2020_10_26_234545) do
     t.integer "total_days", default: 0
     t.integer "total_time", default: 0
     t.integer "continuation_days", default: 0
-    t.integer "open_range"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

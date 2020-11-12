@@ -7,7 +7,6 @@ class CreateHabits < ActiveRecord::Migration[5.2]
       t.integer :total_days, default: 0
       t.integer :total_time, default: 0
       t.integer :continuation_days, default: 0
-      t.integer :open_range
 
       t.timestamps
     end

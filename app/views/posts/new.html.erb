@@ -11,8 +11,8 @@
     </div>
     <% if @habit.record_type == Habit::REPORT_TYPE %>
       <div class="post_time_form">
-        <%= f.label "時間" %>
-        <%= f.text_field :report %>
+        <%= f.label "実績" %>
+        <%= f.text_field :report %><%= @habit.report_unit %>
       </div>
     <% end %>
     <% if @achievement.nil? || @achievement.check == false %>

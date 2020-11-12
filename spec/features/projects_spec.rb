@@ -118,7 +118,7 @@ RSpec.feature "Projects", type: :feature do
 
         expect(page).to have_content "習慣を登録しました"
         expect(page).to have_content "習慣登録テスト"
-        expect(page).to have_content "トータル時間　：0時間"
+        expect(page).to have_content "トータル実績　：0時間"
       end.to change(user.habits, :count).by(1)
     end
 
@@ -141,9 +141,11 @@ RSpec.feature "Projects", type: :feature do
       click_link "プロフィール"
       click_link "編集"
       fill_in "習慣名", with: "習慣編集テスト"
+      fill_in "記録単位", with: "分"
       click_button "保存"
 
       expect(page).to have_content "習慣編集テスト"
+      expect(page).to have_content "分"
     end
 
     scenario "search a habit" do
@@ -201,7 +203,7 @@ RSpec.feature "Projects", type: :feature do
         click_button "投稿"
 
         expect(page).to have_content "テストを行った"
-        expect(page).to have_content "トータル時間　：3時間"
+        expect(page).to have_content "トータル実績　：3時間"
       end.to change(habit.posts, :count).by(1)
     end
 

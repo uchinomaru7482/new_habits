@@ -1,4 +1,4 @@
-/* habits#new */
+/* habits#new, #edit */
 #main {
   .field_with_errors {
     display: contents;
@@ -9,7 +9,7 @@
     font-size: 0.8em;
   }
 
-  .habit_content_form {
+  .habit_content_form, .habit_report_unit_form {
     margin: 1em 0;
 
     input {

@@ -32,6 +32,10 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input_area" %>
     </div>
 
+    <div class="terms_of_service_and_pribacy_policy">
+      <p><%= link_to "利用規約", terms_of_service_path %>　<%= link_to "プライバシーポリシー", privacy_policy_path %></p>
+    </div>
+
     <div class="sign_up_field">
       <%= f.submit "新規登録", class: "input_area" %>
     </div>

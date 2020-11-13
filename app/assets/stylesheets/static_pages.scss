@@ -46,6 +46,20 @@ header {
         }
       }
     }
+
+    .terms_of_service_and_pribacy_policy {
+      font-size: 0.8em;
+      text-align: center;
+      margin-top: 3em;
+
+      a {
+        color: #999;
+      }
+
+      a:hover {
+        border-bottom: solid 1px #999;
+      }
+    }
   }
 }
 
@@ -364,6 +378,32 @@ header {
     a:hover, .test_signin_button:hover {
       background: #000;
       color: #fff;
+    }
+  }
+
+  .terms_of_service_and_pribacy_policy{
+    margin: 1em;
+  }
+}
+
+/* static_pages#terms_of_service, #privacy_policy */
+.terms_of_service, .privacy_policy {
+  display: initial;
+
+  header {
+    display: none;
+  }
+
+  div {
+    width: 60em;
+    margin: 0 auto;
+
+    p {
+      margin: 1em 0 1em 1em;
+    }
+
+    li {
+      list-style: decimal;
     }
   }
 }

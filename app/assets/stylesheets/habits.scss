@@ -14,8 +14,12 @@
 
     input {
       height: 1.5em;
-      border-radius: 4px;
+      border-radius: 3px;
     }
+  }
+
+  .submit_button {
+    border-radius: 3px;
   }
 
   .habit_report_type_form {
@@ -31,14 +35,18 @@
 
     .text_field {
       width: 15em;
-      border-radius: 4px;
+      border-radius: 3px;
       margin-right: 1em;
+    }
+
+    .search_button {
+      border-radius: 3px;
     }
   }
 
   .search_habit {
     padding: 1em 0;
-    border-bottom: solid 1px #eee;
+    border-bottom: solid 1px #ddd;
 
     .habit_header {
       overflow: hidden;

@@ -225,7 +225,7 @@ RSpec.feature "Projects", type: :feature do
       sign_in_as user
 
       expect do
-        click_link "コメントを見る"
+        click_link "コメント 0"
         fill_in "コメント", with: "テストコメント"
         click_button "投稿"
 
@@ -236,7 +236,7 @@ RSpec.feature "Projects", type: :feature do
     scenario "remove a comment" do
       FactoryBot.create(:comment, post: post, user: user)
       sign_in_as user
-      click_link "コメントを見る"
+      click_link "コメント 1"
       click_link "削除"
 
       expect(post.comments).to be_empty

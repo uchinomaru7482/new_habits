@@ -236,11 +236,11 @@ header {
 
   .app_title {
     background-image: image-url("lp_image/top_image.jpg");
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-position: top;
     background-repeat: no-repeat;
-    height: 60em;
+    height: 70em;
 
     .alert {
       text-align: center;

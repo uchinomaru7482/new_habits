@@ -9,7 +9,7 @@
     <div class="post_image_form">
       <%= f.file_field :image %>
     </div>
-    <% if @habit.record_type == Habit::REPORT_TYPE %>
+    <% if @habit.report_type == Habit::REPORT_TYPE %>
       <div class="post_report_form">
         <%= f.label "実績" %>
         <%= f.text_field :report %><span><%= @habit.report_unit %></span>

@@ -107,13 +107,13 @@ RSpec.feature "Projects", type: :feature do
       end.to change(user.habits, :count).by(1)
     end
 
-    scenario "register a record type habit" do
+    scenario "register a report type habit" do
       sign_in_as user
 
       expect do
         click_link "習慣登録"
         fill_in "習慣名", with: "習慣登録テスト"
-        choose "habit_record_type_false"
+        choose "habit_report_type_false"
         click_button "登録"
 
         expect(page).to have_content "習慣を登録しました"
@@ -162,7 +162,7 @@ RSpec.feature "Projects", type: :feature do
 
   describe "post" do
     scenario "post achievements with check" do
-      habit = FactoryBot.create(:habit, record_type: true, owner: user)
+      habit = FactoryBot.create(:habit, report_type: true, owner: user)
       sign_in_as user
 
       expect do
@@ -178,7 +178,7 @@ RSpec.feature "Projects", type: :feature do
     end
 
     scenario "post achievements without check" do
-      habit = FactoryBot.create(:habit, record_type: true, owner: user)
+      habit = FactoryBot.create(:habit, report_type: true, owner: user)
       sign_in_as user
 
       expect do

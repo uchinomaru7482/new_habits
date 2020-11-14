@@ -7,13 +7,13 @@ class Habit < ApplicationRecord
   has_many :achievements, dependent: :destroy
 
   validates :content, presence: true, length: { maximum: 40 }
-  validates :record_type, inclusion: { in: [true, false] }
+  validates :report_type, inclusion: { in: [true, false] }
   validates :report_unit, presence: true, length: { maximum: 8 }
 
   def calculation_management_value
     self.total_days = count_total_days
     self.continuation_days = count_continuation_days
-    self.total_report = count_total_report if record_type == REPORT_TYPE
+    self.total_report = count_total_report if report_type == REPORT_TYPE
     save
   end
 

@@ -1,11 +1,11 @@
 require "rails_helper"
 
 RSpec.describe Habit, type: :model do
-  it "is valid with a content and record_type" do
+  it "is valid with a content and report_type" do
     user = FactoryBot.create(:user)
     habit = Habit.new(
       content: "毎日読書をする",
-      record_type: Habit::REPORT_TYPE,
+      report_type: Habit::REPORT_TYPE,
       user_id: user.id
     )
     expect(habit).to be_valid
@@ -23,10 +23,10 @@ RSpec.describe Habit, type: :model do
     expect(habit.errors[:content]).to include("は40文字以内で入力してください")
   end
 
-  it "is invalid without a record_type" do
-    habit = FactoryBot.build(:habit, record_type: nil)
+  it "is invalid without a report_type" do
+    habit = FactoryBot.build(:habit, report_type: nil)
     habit.valid?
-    expect(habit.errors[:record_type]).to include("は一覧にありません")
+    expect(habit.errors[:report_type]).to include("は一覧にありません")
   end
 
   it "is invalid without a report_unit more than the maximum characters" do

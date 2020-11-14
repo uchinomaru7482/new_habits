@@ -7,7 +7,7 @@
           <li class="habit_name"><%= link_to "#{habit.content}", habit_path(habit) %></li>
           <li>継続日数　　　：<%= habit.continuation_days %>日</li>
           <li>トータル日数　：<%= habit.total_days %>日</li>
-          <% if habit.record_type == Habit::REPORT_TYPE %>
+          <% if habit.report_type == Habit::REPORT_TYPE %>
             <li>トータル実績　：<%= habit.total_report %><%= habit.report_unit %></li>
           <% end %>
           <% if show_edit_delete_button == false %>

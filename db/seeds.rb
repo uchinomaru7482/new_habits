@@ -17,14 +17,14 @@ profiles = [{ email: "yumi@example.com",   name: "yumi",    password: "aaaaaaaa"
             { email: "maeda@example.com",  name: "前田",     password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
             { email: "kana@example.com",   name: "kana",    password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current }]
 
-habits1 = [{ content: "1時間本を読む",     	record_type: false, total_days: 6, total_report: 9, continuation_days: 6, created_at: today - 5 },
-           { content: "1時間ジョギングする", record_type: false, total_days: 6, total_report: 7, continuation_days: 4, created_at: today - 6 },
-           { content: "2時間勉強する",      record_type: false, total_days: 1, total_report: 2, continuation_days: 1 },
-           { content: "筋トレをする",      	record_type: true,  total_days: 1,                continuation_days: 1 },
-           { content: "コードを書く",       record_type: true,  total_days: 1,                continuation_days: 1 },
-           { content: "毎日散歩する",	      record_type: true,  total_days: 1,                continuation_days: 1 },
-           { content: "英語の勉強をする",    record_type: true,  total_days: 1,                continuation_days: 1 },
-           { content: "韓国語の勉強をする",  record_type: true,  total_days: 1,                continuation_days: 1 }]
+habits1 = [{ content: "1時間本を読む",     	report_type: false, total_days: 6, total_report: 9, continuation_days: 6, created_at: today - 5 },
+           { content: "1時間ジョギングする", report_type: false, total_days: 6, total_report: 7, continuation_days: 4, created_at: today - 6 },
+           { content: "2時間勉強する",      report_type: false, total_days: 1, total_report: 2, continuation_days: 1 },
+           { content: "筋トレをする",      	report_type: true,  total_days: 1,                continuation_days: 1 },
+           { content: "コードを書く",       report_type: true,  total_days: 1,                continuation_days: 1 },
+           { content: "毎日散歩する",	      report_type: true,  total_days: 1,                continuation_days: 1 },
+           { content: "英語の勉強をする",    report_type: true,  total_days: 1,                continuation_days: 1 },
+           { content: "韓国語の勉強をする",  report_type: true,  total_days: 1,                continuation_days: 1 }]
 
 posts1 = [{ user_id: 1, content: "今日は「お金の真理」という本を読んだ。お金との向き合い方について考えさせられた。" },
           { user_id: 2, content: "公園をジョギングした。最近気温が下がってきて気持ちがいい。" },
@@ -99,7 +99,7 @@ end
 end
 
 user = User.find(1)
-habit = user.habits.create!(content: "毎日自炊する", record_type: true, total_days: 2, continuation_days: 1, created_at: today - 2)
+habit = user.habits.create!(content: "毎日自炊する", report_type: true, total_days: 2, continuation_days: 1, created_at: today - 2)
 post = habit.posts.create!(user_id: 1, content: "青椒肉絲を作った。本格中華を家で作ることができて嬉しい。")
 habit.posts.create!(user_id: 1, content: "餃子を作った。実家の味が再現できていたような気がする。", created_at: today - 2)
 habit.achievements.create!(check: true)

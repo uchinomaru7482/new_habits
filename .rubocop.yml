@@ -51,6 +51,8 @@ Layout/ExtraSpacing:
 
 Layout/LineLength:
   Max: 150
+  Exclude:
+    - "db/seeds.rb"
 
 Metrics/AbcSize:
   Max: 25

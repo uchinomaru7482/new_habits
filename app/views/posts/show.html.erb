@@ -1,27 +1,27 @@
 <div id="main">
-	<h2>ホーム</h2>
+  <h2>ホーム</h2>
   <% flash.each do |message_type, message| %>
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
   <% end %>
   <div class="post">
-	  <div class="post_header">
-	    <p class="user_image"><%= image_tag @post.user.image.url %></p>
-	    <p class="user_name"><%= @post.user.name %></p>
-	    <p class="time_stamp"><%= l @post.created_at %></p>
-	  </div>
-	  <div class="post_habit">
-	    <p><%= image_tag "/images/header_image/habit.png" %></p>
-	    <p class="habit_name"><%= @post.habit.content %></p>
-	  </div>
-	  <div class="post_content"><%= simple_format(@post.content) %></div>
-	  <% if @post.image? %>
-	    <p class="post_image"><%= image_tag @post.image.url %></p>
-	  <% end %>
-	</div>
+    <div class="post_header">
+      <p class="user_image"><%= image_tag @post.user.image.url %></p>
+      <p class="user_name"><%= @post.user.name %></p>
+      <p class="time_stamp"><%= l @post.created_at %></p>
+    </div>
+    <div class="post_habit">
+      <p><%= image_tag "/images/header_image/habit.png" %></p>
+      <p class="habit_name"><%= @post.habit.content %></p>
+    </div>
+    <div class="post_content"><%= simple_format(@post.content) %></div>
+    <% if @post.image? %>
+      <p class="post_image"><%= image_tag @post.image.url %></p>
+    <% end %>
+  </div>
 
-	<%= form_with model: [@post, @comment], local: true do |f| %>
-		<%= render "shared/error_messages", model: f.object %>
-		<div class="comment_content_form">
+  <%= form_with model: [@post, @comment], local: true do |f| %>
+    <%= render "shared/error_messages", model: f.object %>
+    <div class="comment_content_form">
       <%= f.label :content, "コメント" %>
       <%= f.text_area :content %>
     </div>

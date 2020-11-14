@@ -10,9 +10,9 @@
       <%= f.file_field :image %>
     </div>
     <% if @habit.record_type == Habit::REPORT_TYPE %>
-      <div class="post_time_form">
+      <div class="post_report_form">
         <%= f.label "実績" %>
-        <%= f.text_field :report %><%= @habit.report_unit %>
+        <%= f.text_field :report %><span><%= @habit.report_unit %></span>
       </div>
     <% end %>
     <% if @achievement.nil? || @achievement.check == false %>

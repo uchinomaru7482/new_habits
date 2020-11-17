@@ -27,4 +27,8 @@
 /config/master.key
 
 .DS_Store
+config/secrets.yml
+.env
 mysql/
+public/uploads/
+config/*.enc

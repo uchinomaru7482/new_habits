@@ -16,4 +16,9 @@
     <p class="post_delete_button"><%= link_to "削除", post_path(post), method: :delete %></p>
   <% end %>
   <p class="comment_button"><%= link_to "コメント #{post.comments.count}", post_path(post) %></p>
+  <% if already_liked?(post) %>
+    <p><%= link_to "いいね済 #{post.users.count}", "/posts/#{post.id}/likes/destroy", method: :post %></p>
+  <% else %>
+    <p><%= link_to "いいね #{post.users.count}", "/posts/#{post.id}/likes/create", method: :post %></p>
+  <% end %>
 </div>

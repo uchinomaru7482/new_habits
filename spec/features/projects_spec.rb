@@ -245,7 +245,7 @@ RSpec.feature "Projects", type: :feature do
       end
 
       scenario "like to post from user path" do
-        post = FactoryBot.create(:post, habit: habit)
+        FactoryBot.create(:post, habit: habit)
         sign_in_as user
         click_link "プロフィール"
         click_link "いいね 0"

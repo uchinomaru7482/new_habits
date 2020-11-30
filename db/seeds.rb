@@ -118,15 +118,15 @@ yumi = User.find_by(name: "yumi")
 akari = User.find_by(name: "あかり")
 tekki = User.find_by(name: "テッキー")
 kenji = User.find_by(name: "kenji")
-yumi.posts.each do |post|
-  post.likes.create!(user_id: akari.id)
-  post.likes.create!(user_id: tekki.id)
-  post.likes.create!(user_id: kenji.id)
+yumi.posts.each do |yumi_post|
+  yumi_post.likes.create!(user_id: akari.id)
+  yumi_post.likes.create!(user_id: tekki.id)
+  yumi_post.likes.create!(user_id: kenji.id)
 end
-akari.posts.each do |post|
-  post.likes.create!(user_id: yumi.id)
-  post.likes.create!(user_id: tekki.id)
+akari.posts.each do |akari_post|
+  akari_post.likes.create!(user_id: yumi.id)
+  akari_post.likes.create!(user_id: tekki.id)
 end
-kenji.posts.each do |post|
-  post.likes.create!(user_id: tekki.id)
+kenji.posts.each do |kenji_post|
+  kenji_post.likes.create!(user_id: tekki.id)
 end

@@ -113,3 +113,20 @@ following = users[1..5]
 followers = users[2..5]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+yumi = User.find_by(name: "yumi")
+akari = User.find_by(name: "あかり")
+tekki = User.find_by(name: "テッキー")
+kenji = User.find_by(name: "kenji")
+yumi.posts.each do |post|
+  post.likes.create!(user_id: akari.id)
+  post.likes.create!(user_id: tekki.id)
+  post.likes.create!(user_id: kenji.id)
+end
+akari.posts.each do |post|
+  post.likes.create!(user_id: yumi.id)
+  post.likes.create!(user_id: tekki.id)
+end
+kenji.posts.each do |post|
+  post.likes.create!(user_id: tekki.id)
+end

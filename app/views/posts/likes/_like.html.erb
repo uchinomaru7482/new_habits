@@ -1,5 +1,5 @@
 <% if already_liked?(post) %>
-  <p><%= link_to "いいね済 #{post.users.count}", "/posts/#{post.id}/likes/destroy", method: :post, remote: true %></p>
+  <p><%= link_to "いいね済 #{post.users.count}", "/posts/#{post.id}/likes/destroy", method: :delete, remote: true %></p>
 <% else %>
   <p><%= link_to "いいね #{post.users.count}", "/posts/#{post.id}/likes/create", method: :post, remote: true %></p>
 <% end %>

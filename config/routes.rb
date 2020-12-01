@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:show, :destroy] do
     resources :comments, only: [:create]
     post "/likes/create", to: "posts/likes#create"
-    post "/likes/destroy", to: "posts/likes#destroy"
+    delete "/likes/destroy", to: "posts/likes#destroy"
   end
   resources :comments, only: [:destroy]
   resources :relationships, only: [:create, :destroy]

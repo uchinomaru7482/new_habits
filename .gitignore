@@ -32,3 +32,4 @@ config/secrets.yml
 mysql/
 public/uploads/
 config/*.enc
+vendor/*

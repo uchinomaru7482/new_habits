@@ -10,4 +10,4 @@ class Posts::LikesController < ApplicationController
     @like.destroy
     redirect_to request.referer
   end
-end 
+end

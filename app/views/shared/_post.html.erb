@@ -17,8 +17,8 @@
   <% end %>
   <p class="comment_button"><%= link_to "コメント #{post.comments.count}", post_path(post) %></p>
   <% if already_liked?(post) %>
-    <p><%= link_to "いいね済 #{post.users.count}", "/posts/#{post.id}/likes/destroy", method: :delete %></p>
+    <p class="like_button"><%= link_to "いいね済 #{post.users.count}", "/posts/#{post.id}/likes/destroy", method: :delete %></p>
   <% else %>
-    <p><%= link_to "いいね #{post.users.count}", "/posts/#{post.id}/likes/create", method: :post %></p>
+    <p class="like_button"><%= link_to "いいね #{post.users.count}", "/posts/#{post.id}/likes/create", method: :post %></p>
   <% end %>
 </div>

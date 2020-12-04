@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_003525) do
+ActiveRecord::Schema.define(version: 2020_12_03_011323) do
 
   create_table "achievements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "habit_id"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2020_11_12_003525) do
     t.integer "total_report", default: 0
     t.integer "continuation_days", default: 0
     t.string "report_unit", default: "時間", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

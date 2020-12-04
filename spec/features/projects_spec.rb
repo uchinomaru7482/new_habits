@@ -217,6 +217,43 @@ RSpec.feature "Projects", type: :feature do
 
       expect(habit.posts).to be_empty
     end
+
+    describe "like" do
+      scenario "like to post from root path" do
+        post = FactoryBot.create(:post, habit: habit)
+        sign_in_as user
+
+        expect do
+          click_link "いいね 0"
+
+          expect(page).to have_content "いいね済 1"
+          expect(current_path).to eq root_path
+        end.to change(post.likes, :count).by(1)
+      end
+
+      scenario "remove like" do
+        post = FactoryBot.create(:post, habit: habit)
+        sign_in_as user
+        click_link "いいね 0"
+
+        expect do
+          click_link "いいね済 1"
+
+          expect(page).to have_content "いいね 0"
+          expect(current_path).to eq root_path
+        end.to change(post.likes, :count).by(-1)
+      end
+
+      scenario "like to post from user path" do
+        FactoryBot.create(:post, habit: habit)
+        sign_in_as user
+        click_link "プロフィール"
+        click_link "いいね 0"
+
+        expect(page).to have_content "いいね済 1"
+        expect(current_path).to eq user_path(user)
+      end
+    end
   end
 
   describe "comment" do

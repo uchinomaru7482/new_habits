@@ -79,4 +79,4 @@ gem 'kaminari'
 gem 'simple_calendar', '~> 2.0'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
-gem 'jquery-rails'
+gem 'jquery-rails', '4.4.0'

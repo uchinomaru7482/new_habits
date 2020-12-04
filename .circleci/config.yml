@@ -60,8 +60,13 @@ jobs:
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
       - run: mv config/database.yml.ci config/database.yml
       - run:
-          name: Database setup
-          command: bundle exec rails db:schema:load --trace
+          name: setup database
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:schema:load
+      #- run:
+      #    name: Database setup
+      #    command: bundle exec rails db:schema:load --trace
       # Run rspec in parallel
       - ruby/rspec-test
       - ruby/rubocop-check

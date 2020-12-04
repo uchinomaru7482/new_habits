@@ -158,17 +158,32 @@ header {
       padding-left: 3.5em;
 
       a {
-        font-size: 0.8em;
+        color: #000;
+
+        img {
+          height: 1em;
+        }
       }
     }
 
-    .like_button {
+    .delete_like_button, .add_like_button {
       display: inline-block;
-      padding-left: 1.5em;
+      padding: 0.2em 0.5em;
+      margin-left: 1em;
+      border-radius: 0.5em;
+      color: #000;
 
       a {
-        font-size: 0.8em;
+        color: #000;
+
+        img {
+          height: 1em;
+        }
       }
+    }
+
+    .delete_like_button {
+      background-color: rgba(255,100,180,0.5);
     }
   }
 }

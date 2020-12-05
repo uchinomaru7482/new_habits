@@ -224,9 +224,9 @@ RSpec.feature "Projects", type: :feature do
         sign_in_as user
 
         expect do
-          click_link "いいね 0"
+          click_link "like_icon"
 
-          expect(page).to have_content "いいね済 1"
+          expect(page).to have_selector ".delete_like_button", text: "1"
           expect(current_path).to eq root_path
         end.to change(post.likes, :count).by(1)
       end
@@ -234,12 +234,12 @@ RSpec.feature "Projects", type: :feature do
       scenario "remove like" do
         post = FactoryBot.create(:post, habit: habit)
         sign_in_as user
-        click_link "いいね 0"
+        click_link "like_icon"
 
         expect do
-          click_link "いいね済 1"
+          click_link "like_icon"
 
-          expect(page).to have_content "いいね 0"
+          expect(page).to have_selector ".add_like_button", text: "0"
           expect(current_path).to eq root_path
         end.to change(post.likes, :count).by(-1)
       end
@@ -248,9 +248,9 @@ RSpec.feature "Projects", type: :feature do
         FactoryBot.create(:post, habit: habit)
         sign_in_as user
         click_link "プロフィール"
-        click_link "いいね 0"
+        click_link "like_icon"
 
-        expect(page).to have_content "いいね済 1"
+        expect(page).to have_selector ".delete_like_button", text: "1"
         expect(current_path).to eq user_path(user)
       end
     end
@@ -262,7 +262,7 @@ RSpec.feature "Projects", type: :feature do
       sign_in_as user
 
       expect do
-        click_link "コメント 0"
+        click_link "comment_icon"
         fill_in "コメント", with: "テストコメント"
         click_button "投稿"
 
@@ -273,7 +273,7 @@ RSpec.feature "Projects", type: :feature do
     scenario "remove a comment" do
       FactoryBot.create(:comment, post: post, user: user)
       sign_in_as user
-      click_link "コメント 1"
+      click_link "comment_icon"
       click_link "削除"
 
       expect(post.comments).to be_empty

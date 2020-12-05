@@ -16,17 +16,17 @@
     <p class="post_delete_button"><%= link_to "削除", post_path(post), method: :delete %></p>
   <% end %>
   <p class="comment_button"><%= link_to post_path(post) do %>
-    <%= image_tag "/images/comment_icon.png" %>
+    <%= image_tag "/images/comment_icon.png", alt: "comment_icon" %>
     <%= post.comments.count %>
   <% end %></p>
   <% if already_liked?(post) %>
     <p class="delete_like_button"><%= link_to "/posts/#{post.id}/likes/destroy", method: :delete do %>
-      <%= image_tag "/images/like_icon.png" %>
+      <%= image_tag "/images/like_icon.png", alt: "like_icon" %>
       <%= post.users.count %>
     <% end %></p>
   <% else %>
     <p class="add_like_button"><%= link_to "/posts/#{post.id}/likes/create", method: :post do %>
-      <%= image_tag "/images/like_icon.png" %>
+      <%= image_tag "/images/like_icon.png", alt: "like_icon" %>
       <%= post.users.count %>
     <% end %></p>
   <% end %>

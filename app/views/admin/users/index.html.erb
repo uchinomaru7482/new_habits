@@ -1,0 +1,29 @@
+<div id="main">
+  <h1>ユーザー管理画面</h1>
+  <% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+  <% end %>
+  
+  <table>
+    <thead>
+        <tr>
+          <th><%= User.human_attribute_name(:name) %></th>
+          <th><%= User.human_attribute_name(:email) %></th>
+          <th><%= User.human_attribute_name(:admin) %></th>
+          <th><%= User.human_attribute_name(:created_at) %></th>
+          <th></th>
+        </tr>
+      </thead>
+    <% @users.each do |user| %>
+      <tbody>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.admin ? "管理者" : "一般" %></td>
+          <td><%= user.created_at %></td>
+          <td><%= link_to "削除", admin_user_path(user), method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除してもよろしいですか？" } %>  </td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

@@ -16,5 +16,6 @@
  *= require users.scss
  *= require habits.scss
  *= require posts.scss
+ *= require admin/users.scss
  *= require_self
  */

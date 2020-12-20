@@ -3,8 +3,8 @@
   <% flash.each do |message_type, message| %>
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
   <% end %>
-  
-  <table>
+
+  <table class="user_index_table">
     <thead>
         <tr>
           <th><%= User.human_attribute_name(:name) %></th>
@@ -20,8 +20,12 @@
           <td><%= user.name %></td>
           <td><%= user.email %></td>
           <td><%= user.admin ? "管理者" : "一般" %></td>
-          <td><%= user.created_at %></td>
-          <td><%= link_to "削除", admin_user_path(user), method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除してもよろしいですか？" } %>  </td>
+          <td><%= l user.created_at, format: :short %></td>
+          <% if user.id != current_user.id %>
+            <td><%= link_to "削除", admin_user_path(user), method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除してもよろしいですか？" } %>  </td>
+          <% else %>
+            <td></td>
+          <% end %>
         </tr>
       </tbody>
     <% end %>

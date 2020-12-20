@@ -52,6 +52,14 @@
                   ヘルプ
                 <% end %>
               </li>
+              <% if admin? %>
+                <li>
+                  <%= link_to admin_users_path do %>
+                    <%= image_tag "/images/header_image/admin.png" %>
+                    管理画面
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
           </nav>
           <div class="terms_of_service_and_pribacy_policy">

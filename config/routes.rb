@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations" }
 
+  namespace :admin do
+    resources :users, only: [:index, :destroy]
+  end
   resources :users, only: [:show] do
     get "/following", to: "users#following" 
     get "/followers", to: "users#followers"

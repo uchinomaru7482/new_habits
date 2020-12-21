@@ -303,7 +303,7 @@ RSpec.feature "Projects", type: :feature do
           click_link "削除"
         end
 
-        expect(page).to have_content "ユーザー「#{ delete_user.name }」を削除しました"
+        expect(page).to have_content "ユーザー「#{delete_user.name}」を削除しました"
       end
 
       scenario "cancel confirmation", js: true do
@@ -313,8 +313,8 @@ RSpec.feature "Projects", type: :feature do
         page.dismiss_confirm do
           click_link "削除"
         end
-        
-        expect(page).to have_content "#{ delete_user.name }"
+
+        expect(page).to have_content delete_user.name.to_s
       end
     end
   end

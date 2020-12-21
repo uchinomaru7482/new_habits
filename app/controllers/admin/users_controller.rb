@@ -11,7 +11,9 @@ class Admin::UsersController < ApplicationController
       flash[:notice] = "サンプルユーザー以外は削除できません"
       redirect_to admin_users_path and return
     end
-    User.find(params[:id]).destroy
+    user = User.find(params[:id])
+    user.destroy
+    flash[:notice] = "ユーザー「#{user.name}」を削除しました"
     redirect_to admin_users_path
   end
 

@@ -8,7 +8,7 @@
 
 today = Time.current
 
-profiles = [{ email: "yumi@example.com",   name: "yumi",    image: open("./public/images/sample_data_image/user1.jpg"), password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
+profiles = [{ email: "yumi@example.com",   name: "yumi",    image: open("./public/images/sample_data_image/user1.jpg"), password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current, admin: true },
             { email: "taro@example.com",   name: "たろう",   image: open("./public/images/sample_data_image/user2.jpg"), password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
             { email: "akari@example.com",  name: "あかり",   image: open("./public/images/sample_data_image/user3.jpg"), password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },
             { email: "shohei@example.com", name: "翔平",     image: open("./public/images/sample_data_image/user4.jpg"), password: "aaaaaaaa", password_confirmation: "aaaaaaaa", confirmed_at: Time.current },

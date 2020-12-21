@@ -16,6 +16,8 @@ ja:
         name: "ニックネーム"
         image: "プロフィール画像"
         email: "メールアドレス"
+        admin: "権限"
         password: "パスワード"
         password_confirmation: "パスワード確認"
         current_password: "現在のパスワード"
+        created_at: "作成日時"

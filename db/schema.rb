@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_011323) do
+ActiveRecord::Schema.define(version: 2020_12_20_015141) do
 
   create_table "achievements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "habit_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_011323) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "name", null: false
+    t.boolean "admin", default: false, null: false
     t.string "image"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

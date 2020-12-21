@@ -279,4 +279,43 @@ RSpec.feature "Projects", type: :feature do
       expect(post.comments).to be_empty
     end
   end
+
+  describe "admin" do
+    context "when not admin" do
+      let(:user) { FactoryBot.create(:user, admin: false) }
+
+      scenario "management screen is not displayed" do
+        sign_in_as user
+        visit admin_users_path
+
+        expect(page).to have_content "管理者権限がありません"
+      end
+    end
+
+    context "when admin" do
+      let(:user) { FactoryBot.create(:user, admin: true) }
+
+      scenario "delete user", js: true do
+        delete_user = FactoryBot.create(:user, id: 2)
+        sign_in_as user
+        click_link "管理画面"
+        page.accept_confirm do
+          click_link "削除"
+        end
+
+        expect(page).to have_content "ユーザー「#{delete_user.name}」を削除しました"
+      end
+
+      scenario "cancel confirmation", js: true do
+        delete_user = FactoryBot.create(:user, id: 2)
+        sign_in_as user
+        click_link "管理画面"
+        page.dismiss_confirm do
+          click_link "削除"
+        end
+
+        expect(page).to have_content delete_user.name.to_s
+      end
+    end
+  end
 end

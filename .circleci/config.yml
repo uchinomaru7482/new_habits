@@ -30,6 +30,12 @@ jobs:
       - checkout
       - ruby/install-deps
       - run:
+          name: Install Latest Chrome
+          command: |
+            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb
+            sudo apt-get install -f
+      - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
       - run: mv config/database.yml.ci config/database.yml
